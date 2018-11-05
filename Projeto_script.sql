@@ -202,6 +202,13 @@ Value 	('Solteiro'),
         ('Separado'),
         ('Divorciado'),
         ('Viuvo');
+
+INSERT INTO TipoTelefone (descTipoTelefone) 
+Value 	('Celular'),
+        ('Trabalho'),
+        ('Comercial'),
+        ('Residencial');
+        
         
 INSERT INTO Ator (idAtor, idSexo, idNacionalidade, seguroSocialAtor, DNAtor, CPFAtor, IdentidadeAtor) 
 Value 	('Otho', '1', '1', '0001', '09/01/1996', '000.000.000-01', '000.000-001'),
