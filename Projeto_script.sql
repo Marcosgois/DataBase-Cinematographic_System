@@ -1,6 +1,6 @@
 use projeto_hollywood;
 
-create table if not exists Sexo(
+create table if not exists Sexo( /*Done*/
 	idSexo int not null auto_increment,
     descSexo Varchar(45),
 	PRIMARY KEY(idSexo)
@@ -39,13 +39,13 @@ create table if not exists Email(
   PRIMARY KEY(idEmail)
 );
 
-create table if not exists EstadoCivil(
+create table if not exists EstadoCivil(/*Done*/
 	idEstadoCivil int not null auto_increment,
     descEstadoCivil varchar(45),
 	PRIMARY KEY(idEstadoCivil)
 );
 
-create table if not exists Nacionalidade(
+create table if not exists Nacionalidade(/*Done*/
 	idNacionalidade int not null auto_increment,
     descNacionalidade varchar(45),
 	PRIMARY KEY(idNacionalidade)
@@ -194,7 +194,14 @@ Value 	('Brasileiro'),
         ('Canadense'),
         ('Australiano'),
         ('Chinês'),
-        ('Japonês');	
+        ('Japonês');
+
+INSERT INTO EstadoCivil (descEstadoCivil) 
+Value 	('Solteiro'),
+        ('Casado'),
+        ('Separado'),
+        ('Divorciado'),
+        ('Viuvo');
         
 INSERT INTO Ator (idAtor, idSexo, idNacionalidade, seguroSocialAtor, DNAtor, CPFAtor, IdentidadeAtor) 
 Value 	('Otho', '1', '1', '0001', '09/01/1996', '000.000.000-01', '000.000-001'),
