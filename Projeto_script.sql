@@ -182,3 +182,25 @@ create table if not exists Dirigir(
 	FOREIGN KEY (idDiretor) REFERENCES Diretor(idDiretor),
 	FOREIGN KEY (idFilme) REFERENCES Filme(idFilme)
 );
+
+/*----------------------- Preencher Dados ----------------*/
+INSERT INTO Sexo (idSexo, descSexo) 
+Value 	('1', 'Masculino'),
+        ('2', 'Feminino');
+
+INSERT INTO Nacionalidade (idNacionalidade, descNacionalidade) 
+Value 	('1', 'Brasileiro'),
+        ('2', 'Americano'),
+        ('3', 'Canadense'),
+        ('4', 'Australiano'),
+        ('5', 'Chinês'),
+        ('6', 'Japonês');
+        
+
+INSERT INTO Ator (idAtor, idSexo, idNacionalidade, seguroSocialAtor, DNAtor, CPFAtor, IdentidadeAtor) 
+Value 	('Otho', '1', '1', '0001', '09/01/1996', '000.000.000-01', '000.000-001'),
+        ('Marcos', '1', '1', '0010', '09/01/1996', '000.000.000-02', '000.000-002'),
+        ('Wagner', '1', '1', '0011', '09/01/1996', '000.000.000-03', '000.000-003');
+
+
+
