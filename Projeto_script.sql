@@ -184,23 +184,23 @@ create table if not exists Dirigir(
 );
 
 /*----------------------- Preencher Dados ----------------*/
-INSERT INTO Sexo (idSexo, descSexo) 
-Value 	('1', 'Masculino'),
-        ('2', 'Feminino');
+INSERT INTO Sexo (descSexo) 
+Value 	('Masculino'),
+        ('Feminino');
 
-INSERT INTO Nacionalidade (idNacionalidade, descNacionalidade) 
-Value 	('1', 'Brasileiro'),
-        ('2', 'Americano'),
-        ('3', 'Canadense'),
-        ('4', 'Australiano'),
-        ('5', 'Chinês'),
-        ('6', 'Japonês');
+INSERT INTO Nacionalidade (descNacionalidade) 
+Value 	('Brasileiro'),
+        ('Americano'),
+        ('Canadense'),
+        ('Australiano'),
+        ('Chinês'),
+        ('Japonês');	
         
-
 INSERT INTO Ator (idAtor, idSexo, idNacionalidade, seguroSocialAtor, DNAtor, CPFAtor, IdentidadeAtor) 
 Value 	('Otho', '1', '1', '0001', '09/01/1996', '000.000.000-01', '000.000-001'),
         ('Marcos', '1', '1', '0010', '09/01/1996', '000.000.000-02', '000.000-002'),
-        ('Wagner', '1', '1', '0011', '09/01/1996', '000.000.000-03', '000.000-003');
+        ('Wagna', '2', '4', '0011', '07/10/2000', '000.000.000-03', '000.000-003'),
+        ('Wagner', '1', '2', '0100', '09/01/2005', '000.000.000-04', '000.000-004');
 
 
 
