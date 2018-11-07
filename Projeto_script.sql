@@ -15,7 +15,7 @@ create table if not exists Filiacao(
 	PRIMARY KEY(idFiliacao)
 );
 
-create table if not exists Escolaridade(
+create table if not exists Escolaridade(/*TODO - TO FILL*/
 	idEscolaridade int not null auto_increment,
     descEscolaridade varchar(20),
 	PRIMARY KEY(idEscolaridade)
@@ -27,7 +27,7 @@ create table if not exists Telefone(
 	PRIMARY KEY(idTelefone)
 );
 
-create table if not exists TipoTelefone(
+create table if not exists TipoTelefone(/*BD FILLED*/
 	idTipoTelefone int not null auto_increment,
     desctipoTelefone varchar(45),
 	PRIMARY KEY(idTipoTelefone)
@@ -176,6 +176,7 @@ create table if not exists Ator(
     idTelefone int,
     idEndereco int,
     seguroSocialAtor int,
+    NomeAtor varchar(255),
     DNAtor date,
     CPFAtor varchar(45),
     IdentidadeAtor varchar(45),
@@ -236,13 +237,61 @@ Value 	('Celular'),
         ('Residencial');
         
         
-INSERT INTO Ator (idAtor, idSexo, idNacionalidade, seguroSocialAtor, DNAtor, CPFAtor, IdentidadeAtor) 
-Value 	('Otho', '1', '1', '0001', '09/01/1996', '000.000.000-01', '000.000-001'),
-        ('Marcos', '1', '1', '0010', '09/01/1996', '000.000.000-02', '000.000-002'),
-        ('Wagna', '2', '4', '0011', '07/10/2000', '000.000.000-03', '000.000-003'),
-        ('Wagner', '1', '2', '0100', '09/01/2005', '000.000.000-04', '000.000-004');
-		/*
-			
+INSERT INTO Ator (idSexo, idNacionalidade, idFiliacao, idEmail, idEscolaridade, idTelefone, idEndereco, seguroSocialAtor, DNAtor, IdentidadeAtor) 
+Value 	('1', '1', '0001', '1', '09/01/1996', '000.000.000-01', '000.000-001'),
+/*IdAtor: Auto-Incremento [Não preenche], Sexo: M, idNasc: BR, idFilia: x, edEmail: x, idEsc: 1, idTel: 1, idEnd: 1, SeguroSocial, Nome: Otho, DNAtor: 09/01/1996, CPFAtor: 000.000.000-01, Identidade: 000.000-001
+  sexo(1) = masculino
+  Nacionalidade(1) = Brasileiro
+  idFiliacao(x) = [Ainda precisa preencher para esse ator]
+  idEmail(x) = [Ainda precisa preencher para esse ator]
+  idEscolaridade(x) = [Ainda precisa preencher para esse ator]
+  Precisa preencher 
+			idAtor int not null auto_increment,
+			idSexo int,
+			idNacionalidade int,
+			idFiliacao int,
+			idEmail int,
+			idEscolaridade int,
+			idTelefone int,
+			idEndereco int,
+			seguroSocialAtor int,
+			NomeAtor varchar(255),
+			DNAtor date,
+			CPFAtor varchar(45),
+			IdentidadeAtor varchar(45),
+			PRIMARY KEY(idAtor),
+			FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo),
+			FOREIGN KEY (idNacionalidade) REFERENCES Nacionalidade(idNacionalidade),
+			FOREIGN KEY (idFiliacao) REFERENCES Filiacao(idFiliacao),
+			FOREIGN KEY (idEmail) REFERENCES Email(idEmail),
+			FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo),
+			FOREIGN KEY (idEscolaridade) REFERENCES Escolaridade(idEscolaridade),
+			FOREIGN KEY (idTelefone) REFERENCES Telefone(idTelefone),
+			FOREIGN KEY (idEndereco) REFERENCES Endereco(idEndereco)
+        --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+		create table if not exists Diretor(
+		idDiretor int not null auto_increment,
+		idSexo int,
+		idNacionalidade int,
+		idFiliacao int,
+		idEmail int,
+		idEscolaridade int,
+		idTelefone int,
+		idEndereco int,
+		nomeDiretor varchar(45),
+		DNDiretor date,
+		CPFDiretor varchar(45),
+		IdentidadeDiretor varchar(45),
+		PRIMARY KEY(idDiretor),
+		FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo),
+		FOREIGN KEY (idNacionalidade) REFERENCES Nacionalidade(idNacionalidade),
+		FOREIGN KEY (idFiliacao) REFERENCES Filiacao(idFiliacao),
+		FOREIGN KEY (idEmail) REFERENCES Email(idEmail),
+		FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo),
+		FOREIGN KEY (idEscolaridade) REFERENCES Escolaridade(idEscolaridade),
+		FOREIGN KEY (idTelefone) REFERENCES Telefone(idTelefone),
+		FOREIGN KEY (idEndereco) REFERENCES Endereco(idEndereco)
+		);
         */
 
 
