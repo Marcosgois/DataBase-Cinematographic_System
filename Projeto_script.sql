@@ -144,6 +144,13 @@ create table if not exists Filme(
 
 create table if not exists Diretor(
 	idDiretor int not null auto_increment,
+	idSexo int,
+    idNacionalidade int,
+    idFiliacao int,
+    idEmail int,
+    idEscolaridade int,
+    idTelefone int,
+    idEndereco int,
     nomeDiretor varchar(45),
     DNDiretor date,
     CPFDiretor varchar(45),
@@ -163,6 +170,11 @@ create table if not exists Ator(
 	idAtor int not null auto_increment,
     idSexo int,
     idNacionalidade int,
+    idFiliacao int,
+    idEmail int,
+    idEscolaridade int,
+    idTelefone int,
+    idEndereco int,
     seguroSocialAtor int,
     DNAtor date,
     CPFAtor varchar(45),
@@ -229,6 +241,8 @@ Value 	('Otho', '1', '1', '0001', '09/01/1996', '000.000.000-01', '000.000-001')
         ('Marcos', '1', '1', '0010', '09/01/1996', '000.000.000-02', '000.000-002'),
         ('Wagna', '2', '4', '0011', '07/10/2000', '000.000.000-03', '000.000-003'),
         ('Wagner', '1', '2', '0100', '09/01/2005', '000.000.000-04', '000.000-004');
-
+		/*
+			
+        */
 
 
