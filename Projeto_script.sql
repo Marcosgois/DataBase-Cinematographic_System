@@ -1,6 +1,6 @@
 use projeto_hollywood;
 
-create table if not exists Sexo( /*Done*/
+create table if not exists Sexo( /*BD FILLED*/
 	idSexo int not null auto_increment,
     descSexo Varchar(45),
 	PRIMARY KEY(idSexo)
@@ -39,13 +39,13 @@ create table if not exists Email(
   PRIMARY KEY(idEmail)
 );
 
-create table if not exists EstadoCivil(/*Done*/
+create table if not exists EstadoCivil(/*BD FILLED*/
 	idEstadoCivil int not null auto_increment,
     descEstadoCivil varchar(45),
 	PRIMARY KEY(idEstadoCivil)
 );
 
-create table if not exists Nacionalidade(/*Done*/
+create table if not exists Nacionalidade(/*BD FILLED*/
 	idNacionalidade int not null auto_increment,
     descNacionalidade varchar(45),
 	PRIMARY KEY(idNacionalidade)
@@ -57,15 +57,6 @@ create table if not exists Cachee(
     valorCachee int,
     descCache varchar(45),
 	PRIMARY KEY(idCachee)
-);
-
-create table if not exists Diretor(
-	idDiretor int not null auto_increment,
-    nomeDiretor varchar(45),
-    DNDiretor date,
-    CPFDiretor varchar(45),
-    IdentidadeDiretor varchar(45),
-	PRIMARY KEY(idDiretor)
 );
 
 create table if not exists Personagem(
@@ -108,7 +99,7 @@ create table if not exists Endereco(
 	PRIMARY KEY(idEndereco)
 );
 
-create table if not exists TipoEndereco(
+create table if not exists TipoEndereco(/*BD FILLED*/
 	idTipoEndereco int,
 	descEndereco varchar(45),
 	PRIMARY KEY(idTipoEndereco)
@@ -151,6 +142,23 @@ create table if not exists Filme(
     FOREIGN KEY (idEstudio) REFERENCES Estudio(idEstudio)
 );
 
+create table if not exists Diretor(
+	idDiretor int not null auto_increment,
+    nomeDiretor varchar(45),
+    DNDiretor date,
+    CPFDiretor varchar(45),
+    IdentidadeDiretor varchar(45),
+	PRIMARY KEY(idDiretor),
+	FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo),
+	FOREIGN KEY (idNacionalidade) REFERENCES Nacionalidade(idNacionalidade),
+    FOREIGN KEY (idFiliacao) REFERENCES Filiacao(idFiliacao),
+    FOREIGN KEY (idEmail) REFERENCES Email(idEmail),
+    FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo),
+    FOREIGN KEY (idEscolaridade) REFERENCES Escolaridade(idEscolaridade),
+    FOREIGN KEY (idTelefone) REFERENCES Telefone(idTelefone),
+    FOREIGN KEY (idEndereco) REFERENCES Endereco(idEndereco)
+);
+
 create table if not exists Ator(
 	idAtor int not null auto_increment,
     idSexo int,
@@ -161,7 +169,13 @@ create table if not exists Ator(
     IdentidadeAtor varchar(45),
 	PRIMARY KEY(idAtor),
     FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo),
-	FOREIGN KEY (idNacionalidade) REFERENCES Nacionalidade(idNacionalidade)
+	FOREIGN KEY (idNacionalidade) REFERENCES Nacionalidade(idNacionalidade),
+    FOREIGN KEY (idFiliacao) REFERENCES Filiacao(idFiliacao),
+    FOREIGN KEY (idEmail) REFERENCES Email(idEmail),
+    FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo),
+    FOREIGN KEY (idEscolaridade) REFERENCES Escolaridade(idEscolaridade),
+    FOREIGN KEY (idTelefone) REFERENCES Telefone(idTelefone),
+    FOREIGN KEY (idEndereco) REFERENCES Endereco(idEndereco)
 );
 
 /*----------------------- Tabelas associativas----------------*/
