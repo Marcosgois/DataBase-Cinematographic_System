@@ -164,6 +164,12 @@ create table if not exists Ator(
 	FOREIGN KEY (idNacionalidade) REFERENCES Nacionalidade(idNacionalidade)
 );
 
+create table if not exists TipoFisico(
+	idTipoFisico int not null auto_increment,
+	descTipoFisico varchar(45),
+	PRIMARY KEY(idTipoFisico)
+);
+
 /*----------------------- Tabelas associativas----------------*/
 create table if not exists Atuar(
 	idCachee int,
@@ -182,3 +188,46 @@ create table if not exists Dirigir(
 	FOREIGN KEY (idDiretor) REFERENCES Diretor(idDiretor),
 	FOREIGN KEY (idFilme) REFERENCES Filme(idFilme)
 );
+
+create table if not exists Perfil(
+	idTipoFisico int,
+	idAtor int,
+	FOREIGN KEY (idTipoFisico) REFERENCES TipoFisico(idTipoFisico),
+	FOREIGN KEY (idAtor) REFERENCES Ator(idAtor)
+);
+
+/*----------------------- Preencher Dados ----------------*/
+INSERT INTO Sexo (descSexo) 
+Value 	('Masculino'),
+        ('Feminino');
+
+INSERT INTO Nacionalidade (descNacionalidade) 
+Value 	('Brasileiro'),
+        ('Americano'),
+        ('Canadense'),
+        ('Australiano'),
+        ('Chinês'),
+        ('Japonês');
+
+INSERT INTO EstadoCivil (descEstadoCivil) 
+Value 	('Solteiro'),
+        ('Casado'),
+        ('Separado'),
+        ('Divorciado'),
+        ('Viuvo');
+
+INSERT INTO TipoTelefone (descTipoTelefone) 
+Value 	('Celular'),
+        ('Trabalho'),
+        ('Comercial'),
+        ('Residencial');
+        
+        
+INSERT INTO Ator (nomeAtor, idSexo, idNacionalidade, seguroSocialAtor, DNAtor, CPFAtor, IdentidadeAtor) 
+Value 	('Otho', 1, 1, '0001', '09/01/1996', '000.000.000-01', '000.000-001'),
+        ('Marcos', 1, 1, '0010', '09/01/1996', '000.000.000-02', '000.000-002'),
+        ('Wagna', 2, 4, '0011', '07/10/2000', '000.000.000-03', '000.000-003'),
+        ('Wagner', 1, 2, '0100', '09/01/2005', '000.000.000-04', '000.000-004');
+
+
+
