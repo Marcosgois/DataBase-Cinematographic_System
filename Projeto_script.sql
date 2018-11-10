@@ -1,7 +1,61 @@
+use teste_projeto;
+
 create table if not exists Sexo( /*BD FILLED*/
 	idSexo int not null auto_increment,
     descSexo Varchar(45),
 	PRIMARY KEY(idSexo)
+);
+
+create table if not exists TipoEndereco(/*BD FILLED*/
+	idTipoEndereco int,
+	descEndereco varchar(45),
+	PRIMARY KEY(idTipoEndereco)
+);
+
+create table if not exists EstadoCivil(/*BD FILLED*/
+	idEstadoCivil int not null auto_increment,
+    descEstadoCivil varchar(45),
+	PRIMARY KEY(idEstadoCivil)
+);
+
+
+/* Aparentemente o mysql já tem uma palavra cache padrão */
+create table if not exists Cachee(/**/
+	idCachee int not null auto_increment,
+    valorCachee int,
+    descCache varchar(45),
+	PRIMARY KEY(idCachee)
+);
+
+create table if not exists FaturamentoAnoAnterior(/**/
+	idFaturamentoAnoAnterior int NOT NULL AUTO_INCREMENT,
+    valor int,
+	PRIMARY KEY(idFaturamentoAnoAnterior)
+);
+
+create table if not exists Personagem(/**/
+	idPersonagem int not null auto_increment,
+    nomePersonagem varchar(45),
+	PRIMARY KEY(idPersonagem)
+);
+
+create table if not exists Pais(/**/
+ 	idPais int not null auto_increment,
+	NomePais varchar(45),
+	DDI varchar(45),
+	PRIMARY KEY(idPais)
+);
+
+create table if not exists Nacionalidade(/*BD FILLED*/
+	idNacionalidade int not null auto_increment,
+    descNacionalidade varchar(45),
+	PRIMARY KEY(idNacionalidade)
+);
+
+create table if not exists TipoFisico(/**/
+	idTipoFisico int not null auto_increment,
+	descTipoFisico varchar(45),
+	PRIMARY KEY(idTipoFisico)
 );
 
 create table if not exists Filiacao(/**/
@@ -19,6 +73,70 @@ create table if not exists Escolaridade(/*TODO - TO FILL*/
 	PRIMARY KEY(idEscolaridade)
 );
 
+
+create table if not exists TipoTelefone(/*BD FILLED*/
+	idTipoTelefone int not null auto_increment,
+    desctipoTelefone varchar(45),
+	PRIMARY KEY(idTipoTelefone)
+);
+
+create table if not exists Diretor(/**/
+	idDiretor int not null auto_increment,
+	idSexo int,
+    idNacionalidade int,
+    idFiliacao int,
+    idEscolaridade int,
+    nomeDiretor varchar(45),
+    DNDiretor date,
+    CPFDiretor varchar(45),
+    IdentidadeDiretor varchar(45),
+	PRIMARY KEY(idDiretor),
+	FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo),
+	FOREIGN KEY (idNacionalidade) REFERENCES Nacionalidade(idNacionalidade),
+    FOREIGN KEY (idFiliacao) REFERENCES Filiacao(idFiliacao),
+    FOREIGN KEY (idEscolaridade) REFERENCES Escolaridade(idEscolaridade)
+);
+
+create table if not exists Ator(/**/
+	idAtor int not null auto_increment,
+    idSexo int,
+    idNacionalidade int,
+    idFiliacao int,
+    idEscolaridade int,
+	idEstadoCivil int,
+    seguroSocialAtor int,
+    NomeAtor varchar(255),
+    DNAtor date,
+    CPFAtor varchar(45),
+    IdentidadeAtor varchar(45),
+	PRIMARY KEY(idAtor),
+    FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo),
+	FOREIGN KEY (idEstadoCivil) REFERENCES EstadoCivil(idEstadoCivil),
+	FOREIGN KEY (idNacionalidade) REFERENCES Nacionalidade(idNacionalidade),
+    FOREIGN KEY (idFiliacao) REFERENCES Filiacao(idFiliacao),
+    FOREIGN KEY (idEscolaridade) REFERENCES Escolaridade(idEscolaridade)
+);
+
+create table if not exists DonoEstudio(/**/
+	idDonoEstudio int not null auto_increment,
+	idSexo int,
+    idNacionalidade int,
+    idFiliacao int,
+    idEscolaridade int,
+	idEstadoCivil int,
+    nomeDono Varchar(45),
+    DNDono date,
+    CPFDono varchar(45),
+	IdentidadeDono varchar(45),
+	PRIMARY KEY(idDonoEstudio),
+	FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo),
+	FOREIGN KEY (idEstadoCivil) REFERENCES EstadoCivil(idEstadoCivil),
+	FOREIGN KEY (idNacionalidade) REFERENCES Nacionalidade(idNacionalidade),
+    FOREIGN KEY (idFiliacao) REFERENCES Filiacao(idFiliacao),
+    FOREIGN KEY (idEscolaridade) REFERENCES Escolaridade(idEscolaridade)
+
+);
+
 create table if not exists Telefone(/**/
 	idTelefone int not null auto_increment,
 	idDiretor int,
@@ -33,55 +151,16 @@ create table if not exists Telefone(/**/
 	FOREIGN KEY (idDonoEstudio) REFERENCES DonoEstudio(idDonoEstudio)
 );
 
-create table if not exists TipoTelefone(/*BD FILLED*/
-	idTipoTelefone int not null auto_increment,
-    desctipoTelefone varchar(45),
-	PRIMARY KEY(idTipoTelefone)
-);
-
 create table if not exists Email(/**/
 	idEmail int not null auto_increment,
 	idAtor int,
 	idDiretor int,
 	idDonoEstudio int,
     descEmail varchar(45),
-	PRIMARY KEY(idEmail)
+	PRIMARY KEY(idEmail),
   	FOREIGN KEY (idAtor) REFERENCES Ator(idAtor),
   	FOREIGN KEY (idDiretor) REFERENCES Diretor(idDiretor),
 	FOREIGN KEY (idDonoEstudio) REFERENCES DonoEstudio(idDonoEstudio)
-);
-
-create table if not exists EstadoCivil(/*BD FILLED*/
-	idEstadoCivil int not null auto_increment,
-    descEstadoCivil varchar(45),
-	PRIMARY KEY(idEstadoCivil)
-);
-
-create table if not exists Nacionalidade(/*BD FILLED*/
-	idNacionalidade int not null auto_increment,
-    descNacionalidade varchar(45),
-	PRIMARY KEY(idNacionalidade)
-);
-
-/* Aparentemente o mysql já tem uma palavra cache padrão */
-create table if not exists Cachee(/**/
-	idCachee int not null auto_increment,
-    valorCachee int,
-    descCache varchar(45),
-	PRIMARY KEY(idCachee)
-);
-
-create table if not exists Personagem(/**/
-	idPersonagem int not null auto_increment,
-    nomePersonagem varchar(45),
-	PRIMARY KEY(idPersonagem)
-);
-
-create table if not exists Pais(/**/
- 	idPais int not null auto_increment,
-	NomePais varchar(45),
-	DDI varchar(45),
-	PRIMARY KEY(idPais)
 );
 
 create table if not exists UF(/**/
@@ -127,39 +206,6 @@ create table if not exists Endereco(/**/
 	FOREIGN KEY (idTipoEndereco) REFERENCES TipoEndereco(idTipoEndereco)
 );
 
-create table if not exists TipoEndereco(/*BD FILLED*/
-	idTipoEndereco int,
-	descEndereco varchar(45),
-	PRIMARY KEY(idTipoEndereco)
-);
-
-
-create table if not exists FaturamentoAnoAnterior(/**/
-	idFaturamentoAnoAnterior int NOT NULL AUTO_INCREMENT,
-    valor int,
-	PRIMARY KEY(idFaturamentoAnoAnterior)
-);
-
-create table if not exists DonoEstudio(/**/
-	idDonoEstudio int not null auto_increment,
-	idSexo int,
-    idNacionalidade int,
-    idFiliacao int,
-    idEscolaridade int,
-	idEstadoCivil int,
-    nomeDono Varchar(45),
-    DNDono date,
-    CPFDono varchar(45),
-	IdentidadeDono varchar(45),
-	PRIMARY KEY(idDonoEstudio),
-	FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo),
-	FOREIGN KEY (idEstadoCivil) REFERENCES EstadoCivil(idEstadoCivil),
-	FOREIGN KEY (idNacionalidade) REFERENCES Nacionalidade(idNacionalidade),
-    FOREIGN KEY (idFiliacao) REFERENCES Filiacao(idFiliacao),
-    FOREIGN KEY (idEscolaridade) REFERENCES Escolaridade(idEscolaridade)
-
-);
-
 create table if not exists Estudio(/**/
 	idEstudio int NOT NULL auto_increment,
     idDonoEstudio int,
@@ -181,49 +227,6 @@ create table if not exists Filme(/**/
     custoFilme Varchar(45),
 	PRIMARY KEY(IdFilme),
     FOREIGN KEY (idEstudio) REFERENCES Estudio(idEstudio)
-);
-
-create table if not exists Diretor(/**/
-	idDiretor int not null auto_increment,
-	idSexo int,
-    idNacionalidade int,
-    idFiliacao int,
-    idEscolaridade int,
-    nomeDiretor varchar(45),
-    DNDiretor date,
-    CPFDiretor varchar(45),
-    IdentidadeDiretor varchar(45),
-	PRIMARY KEY(idDiretor),
-	FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo),
-	FOREIGN KEY (idNacionalidade) REFERENCES Nacionalidade(idNacionalidade),
-    FOREIGN KEY (idFiliacao) REFERENCES Filiacao(idFiliacao),
-    FOREIGN KEY (idEscolaridade) REFERENCES Escolaridade(idEscolaridade)
-);
-
-create table if not exists Ator(/**/
-	idAtor int not null auto_increment,
-    idSexo int,
-    idNacionalidade int,
-    idFiliacao int,
-    idEscolaridade int,
-	idEstadoCivil int,
-    seguroSocialAtor int,
-    NomeAtor varchar(255),
-    DNAtor date,
-    CPFAtor varchar(45),
-    IdentidadeAtor varchar(45),
-	PRIMARY KEY(idAtor),
-    FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo),
-	FOREIGN KEY (idEstadoCivil) REFERENCES EstadoCivil(idEstadoCivil),
-	FOREIGN KEY (idNacionalidade) REFERENCES Nacionalidade(idNacionalidade),
-    FOREIGN KEY (idFiliacao) REFERENCES Filiacao(idFiliacao),
-    FOREIGN KEY (idEscolaridade) REFERENCES Escolaridade(idEscolaridade)
-);
-
-create table if not exists TipoFisico(/**/
-	idTipoFisico int not null auto_increment,
-	descTipoFisico varchar(45),
-	PRIMARY KEY(idTipoFisico)
 );
 
 /*----------------------- Tabelas associativas----------------*/
@@ -266,7 +269,7 @@ Value 	('William Alvin Pitt',
         ('Johannes Waltz',
         'Elisabeth Urbancic',
         '1922-04-11',
-        '1925-08-13');;
+        '1925-08-13');
 
 INSERT INTO Nacionalidade (descNacionalidade) 
 Value 	('Brasileiro'),
