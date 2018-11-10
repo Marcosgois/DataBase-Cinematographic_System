@@ -191,6 +191,12 @@ create table if not exists Ator(
     FOREIGN KEY (idEndereco) REFERENCES Endereco(idEndereco)
 );
 
+create table if not exists TipoFisico(
+	idTipoFisico int not null auto_increment,
+	descTipoFisico varchar(45),
+	PRIMARY KEY(idTipoFisico)
+);
+
 /*----------------------- Tabelas associativas----------------*/
 create table if not exists Atuar(
 	idCachee int,
