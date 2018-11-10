@@ -1,5 +1,3 @@
-use projeto_hollywood;
-
 create table if not exists Sexo( /*BD FILLED*/
 	idSexo int not null auto_increment,
     descSexo Varchar(45),
@@ -258,6 +256,17 @@ create table if not exists Perfil(/**/
 INSERT INTO Sexo (descSexo) 
 Value 	('Masculino'),
         ('Feminino');
+        
+INSERT INTO Filiacao (nome_pai,nome_mae,DN_pai,DN_mae) 
+Value 	('William Alvin Pitt',
+        'Jane Etta Pitt',
+        '1941-12-08',
+        '1940-07-24'),
+        
+        ('Johannes Waltz',
+        'Elisabeth Urbancic',
+        '1922-04-11',
+        '1925-08-13');;
 
 INSERT INTO Nacionalidade (descNacionalidade) 
 Value 	('Brasileiro'),
@@ -280,9 +289,9 @@ Value 	('Celular'),
         ('Comercial'),
         ('Residencial');
         
-        
+ /*       
 INSERT INTO Ator (idSexo, idNacionalidade, idFiliacao, idEmail, idEscolaridade, idTelefone, idEndereco, seguroSocialAtor, DNAtor, IdentidadeAtor) 
-Value 	('1', '1', '0001', '1', '09/01/1996', '000.000.000-01', '000.000-001'),
+Value 	('1', '1', '0001', '1', '09/01/1996', '000.000.000-01', '000.000-001'),*/
 /*IdAtor: Auto-Incremento [Não preenche], Sexo: M, idNasc: BR, idFilia: x, edEmail: x, idEsc: 1, idTel: 1, idEnd: 1, SeguroSocial, Nome: Otho, DNAtor: 09/01/1996, CPFAtor: 000.000.000-01, Identidade: 000.000-001
   sexo(1) = masculino
   Nacionalidade(1) = Brasileiro
