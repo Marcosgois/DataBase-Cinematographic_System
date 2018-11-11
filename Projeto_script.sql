@@ -226,7 +226,7 @@ create table if not exists Filme(/**/
     nomeFilme Varchar(45),
     mesesProducaoFilme int,
     anoLancamentoFilme Date,
-    copyrightNumberFilme int,
+    copyrightNumberFilme Varchar(45),
     custoFilme Varchar(45),
 	PRIMARY KEY(IdFilme),
     FOREIGN KEY (idEstudio) REFERENCES Estudio(idEstudio)
@@ -333,30 +333,61 @@ Value 	('William Alvin Pitt',
         '1943-02-14'),						/*07*/
 
 		('Chips Hardy',
-		'1950-01-23',
         'Elizabeth Anne Hardy',
-        '1954-02-13'),						/*08*/
+        '1954-02-13',						/*08*/
+		'1950-01-23'),
 
 		('Edward Mower Norton Jr.',
+		'Lydia Robinson norton',
 		'1948-08-18',
-        'Lydia Robinson norton',
         '1952-08-05'),						/*09*/
 		
         ('Alan George Radcliffe',
-		'1948-08-18',
         'Marcia Jeannine Gresham',
+		'1948-08-18',
         '1952-08-05'),						/*10*/
 
 		('Jo Parsons',
-		'1967-03-23',
         'Nigel Grint',
+		'1967-03-23',
         '1963-11-15'),						/*11*/
 		
-        ('Jacqueline Luesby',
-		'1947-06-12',
-        'Chris Watson',
-        '1933-12-15');						/*12*/
-        
+        ('Chris Watson',
+        'Jacqueline Luesby',
+		'1947-06-12',						
+        '1952-08-05'),						/*12*/
+
+		('Tony Tarantino',
+		'Connie Zastoupil',
+        '1940-07-04',
+        '1946-09-03'),						/*10*/
+
+		('Jacques Leonard Kubrick',
+		'Gertrude Kubrick',
+        '1902-05-21',
+        '1903-10-28'),						/*11*/
+
+
+		('Brendan Nolan',
+		'Christina Nolan',
+        '1942-11-12',
+        '1945-06-22'),						/*12*/
+
+		('Jack Fincher',
+		'Claire Mae Fincher',
+        '1930-12-06',
+        '1938-05-23'),						/*13*/
+
+		('John Snider',
+		 'Marie julie Snider',
+		 '1940-12-03',
+		 '1945-01-28'),						/*14*/
+
+		('Martin Tsujihara',
+		 'Julie Tsuhihara',
+		 '1930-08-03',
+		 '1936-07-21');						/*15*/
+         
 INSERT INTO Nacionalidade (descNacionalidade) 
 Value 	('Brasileiro'),						/*01*/
         ('Americano'),						/*02*/
@@ -505,7 +536,7 @@ Value 	(1,
 
 		(1,
 		 2,
-         10,
+         9,
          6,
          2,
         '573-24-9854',
@@ -547,4 +578,129 @@ Value 	(1,
         '281-270-894-38',
         '4.684.19');						/*12*/			/* Harry Potter */
 
+INSERT INTO Diretor (idSexo,
+    				 idNacionalidade,
+    				 idFiliacao,
+    				 idEscolaridade,
+    				 idEstadoCivil,
+    				 nomeDiretor,
+    				 DNDiretor,
+    				 CPFDiretor,
+    				 IdentidadeDiretor)
+Value	(1,
+		 2,
+		 10,
+		 3,
+		 2,
+		'Quentin Tarantino',
+		'1963-03-27',
+		'340-781-483-17',
+		'8.834.97'),						/*1*/
 
+		(1,
+		 2,
+		 11,
+		 4,
+		 2,
+		'Stanley Kubrick',
+		'1928-07-26',
+		'230-894-169-34',
+		'7.804.34'),						/*2*/
+
+		(1,
+		 9,
+		 12,
+		 6,
+		 2,
+		'Christopher Nolan',
+		'1970-07-30',
+		'301-948-739-56',
+		'9.054.98'),						/*3*/
+
+		(1,
+		 2,
+		 13,
+		 4,
+		 2,
+		'David Fincher',
+		'1962-08-22',
+		'323-089-741-35',
+		'4.978.05');						/*4*/
+
+INSERT INTO FaturamentoAnoAnterior(valor)
+Value	(234289743),						/*1*/	
+		(102093281),						/*2*/
+		(343958304),						/*3*/
+		(379824033),						/*4*/
+		(283194724),						/*5*/
+		(4584397954);						/*6*/
+
+INSERT INTO DonoEstudio(idSexo,
+						idNacionalidade,
+						idFiliacao,
+						idEscolaridade,
+						idEstadoCivil,
+						nomeDono,
+						DNDono,
+						CPFDono,
+						IdentidadeDono)
+Value	(1,
+		 2,
+		 10,
+		 3,
+		 2,
+		'Quentin Tarantino',
+		'1963-03-27',
+		'340-781-483-17',
+		'8.834.97'),
+
+		(1,
+		 2,
+		 11,
+		 4,
+		 2,
+		'Stanley Kubrick',
+		'1928-07-26',
+		'230-894-169-34',
+		'7.804.34'),						/*2*/
+
+		(2,
+		 2,
+		 14,
+		 6,
+		 2,
+		'Stacey Snider',
+		'1961-04-29',
+		'722-348-907-43',
+		'9.784.632'),						/*3*/
+
+		(1,
+		 2,
+		 15,
+		 6,
+		 2,
+		'Kevin Tsujihara',
+		'1964-10-25',
+		'213-478-783-24',
+		'9.784.163');						/*4*/
+
+INSERT INTO Estudio(nomeEstudio,
+    				dataFundacao)
+Value	('A Band Apart',
+		 '1991-27-06'),
+		 ('Hawk Films',
+		  '1964-31-06'),
+		 ('20th Century Fox',
+		 '1935-05-31'),
+		 ('Warner Bros.',
+		 '1923-04-04');
+
+INSERT INTO Filme(	nomeFilme,
+					mesesProducaoFilm,
+					anoLancamentoFilme,
+					copyrightNumberFilme,
+					custoFilme)
+Value	('Inglourious Basterds',
+		 10,
+		 '2009-08-21',
+		'VA 298-231');
