@@ -273,21 +273,239 @@ Value	('Ensino Fundamental incompleto'),	/*01*/
 		('Pós-Graduação');					/*07*/
         
 INSERT INTO Pais(NomePais, DDI) 
-Value	('', 55),				/*01*/
-		('', 1),				/*02*/
-		('', 2),				/*03*/
-		('', 3),				/*04*/
-		('', 4),				/*05*/
-		('', 5),				/*06*/
-		('', 6),				/*07*/
-		('', 7),				/*08*/
-		('', 8),				/*09*/	
-		('', 9),				/*10*/	
-		('', 10),				/*11*/	
-		('', 11),				/*12*/	    
-		('', 12),				/*13*/	
-		('', 13),				/*14*/	
-		('', 14);				/*15*/
+Value	('Anguila', 1), /*1*/
+		('Antígua e Barbuda', 1), /*2*/
+		('Bahamas', 1), /*3*/
+		('Barbados', 1), /*4*/
+		('Bermudas', 1), /*5*/
+		('Canadá', 1), /*6*/
+		('Dominica', 1), /*7*/
+		('Estados Unidos', 1), /*8*/
+		('Granada', 1), /*9*/
+		('Ilhas Caimão', 1), /*10*/
+		('Ilhas Marianas do Norte', 1), /*11*/
+		('Ilhas Virgens Americanas', 1), /*12*/
+		('Ilhas Virgens Britânicas', 1), /*13*/
+		('Jamaica', 1), /*14*/
+		('Montserrat', 1), /*15*/
+		('Porto Rico', 1), /*16*/
+		('República Dominicana', 1), /*17*/
+		('Samoa Americana', 1), /*18*/
+		('Santa Lúcia', 1), /*19*/
+		('São Cristóvão e Neves', 1), /*20*/
+		('São Vicente e Granadinas', 1), /*21*/
+		('Trinidad e Tobago', 1), /*22*/
+		('Turcas e Caicos', 1), /*23*/
+		('Casaquistão', 7), /*24*/
+		('Rússia', 7), /*25*/
+		('Egito', 20), /*26*/
+		('África do Sul', 27), /*27*/
+		('Grécia', 30), /*28*/
+		('Holanda', 31), /*29*/
+		('Bélgica', 32), /*30*/
+		('França', 33), /*31*/
+		('Espanha', 34), /*32*/
+		('Hungria', 36), /*33*/
+		('Itália', 39), /*34*/
+		('Romênia', 40), /*35*/
+		('Suíça', 41), /*36*/
+		('Áustria', 43), /*37*/
+		('Reino Unido', 44), /*38*/
+		('Dinamarca', 45), /*39*/
+		('Suécia', 46), /*40*/
+		('Noruega', 47), /*41*/
+		('Polônia', 48), /*42*/
+		('Alemanha', 49), /*43*/
+		('Peru', 51), /*44*/
+		('México', 52), /*45*/
+		('Cuba', 53), /*46*/
+		('Argentina', 54), /*47*/
+		('Brasil', 55), /*48*/
+		('Chile', 56), /*49*/
+		('Colômbia', 57), /*50*/
+		('Venezuela', 58), /*51*/
+		('Malásia', 60), /*52*/
+		('Austrália', 61), /*53*/
+		('Indonésia', 62), /*54*/
+		('Filipinas', 63), /*55*/
+		('Nova Zelândia', 64), /*56*/
+		('Cingapura', 65), /*57*/
+		('Tailândia', 66), /*58*/
+		('Japão', 81), /*59*/
+		('Coréia do Sul', 82), /*60*/
+		('Vietnã', 84), /*61*/
+		('China', 86), /*62*/
+		('Turquia', 90), /*63*/
+		('Índia', 91), /*64*/
+		('Paquistão', 92), /*65*/
+		('Afeganistão', 93), /*66*/
+		('Sri Lanka', 94), /*67*/
+		('Myanmar', 95), /*68*/
+		('Irã', 98), /*69*/
+		('Marrocos', 212), /*70*/
+		('Saara Ocidental', 212), /*71*/
+		('Argélia', 213), /*72*/
+		('Tunísia', 216), /*73*/
+		('Líbia', 218), /*74*/
+		('Gâmbia', 220), /*75*/
+		('Senegal', 221), /*76*/
+		('Mauritânia', 222), /*77*/
+		('Mali', 223), /*78*/
+		('Guiné', 224), /*79*/
+		('Costa do Marfim', 225), /*80*/
+		('Burkina Faso', 226), /*81*/
+		('Níger', 227), /*82*/
+		('Togo', 228), /*83*/
+		('Benim', 229), /*84*/
+		('Maurício', 230), /*85*/
+		('Libéria', 231), /*86*/
+		('Serra Leoa', 232), /*87*/
+		('Gana', 233), /*88*/
+		('Nigéria', 234), /*89*/
+		('Chade', 235), /*90*/
+		('República Centro-Africana', 236), /*91*/
+		('Camarões', 237), /*92*/
+		('Cabo Verde', 238), /*93*/
+		('São Tomé e Príncipe', 239), /*94*/
+		('Guiné Equatorial', 240), /*95*/
+		('Gabão', 241), /*96*/
+		('Congo-Brazzaville', 242), /*97*/
+		('Congo-Kinshasa', 243), /*98*/
+		('Angola', 244), /*99*/
+		('Guiné-Bissau', 245), /*100*/
+		('Território Britânico do Oceano Índico', 246), /*101*/
+		('Ascensão', 247), /*102*/
+		('Seicheles', 248), /*103*/
+		('Sudão', 249), /*104*/
+		('Ruanda', 250), /*105*/
+		('Etiópia', 251), /*106*/
+		('Somália', 252), /*107*/
+		('Djibuti', 253), /*108*/
+		('Quênia', 254), /*109*/
+		('Tanzânia', 255), /*110*/
+		('Uganda', 256), /*111*/
+		('Burundi', 257), /*112*/
+		('Moçambique', 258), /*113*/
+		('Zâmbia', 260), /*114*/
+		('Madagascar', 261), /*115*/
+		('Reunião', 262), /*116*/
+		('Zimbábue', 263), /*117*/
+		('Namíbia', 264), /*118*/
+		('Malawi', 265), /*119*/
+		('Lesoto', 266), /*120*/
+		('Botsuana', 267), /*121*/
+		('Suazilândia', 268), /*122*/
+		('Comores', 269), /*123*/
+		('Mayotte', 269), /*124*/
+		('Santa Helena', 290), /*125*/
+		('Eritréia', 291), /*126*/
+		('Aruba', 297), /*127*/
+		('Ilhas Faroé', 298), /*128*/
+		('Groenlândia', 299), /*129*/
+		('Gibraltar', 350), /*130*/
+		('Portugal', 351), /*131*/
+		('Luxemburgo', 352), /*132*/
+		('Irlanda', 353), /*133*/
+		('Islândia', 354), /*134*/
+		('Albânia', 355), /*135*/
+		('Malta', 356), /*136*/
+		('Chipre', 357), /*137*/
+		('Finlândia', 358), /*138*/
+		('Bulgária', 359), /*139*/
+		('Lituânia', 370), /*140*/
+		('Letônia', 371), /*141*/
+		('Estônia', 372), /*142*/
+		('Moldávia', 373), /*143*/
+		('Armênia', 374), /*144*/
+		('Bielorrússia', 375), /*145*/
+		('Andorra', 376), /*146*/
+		('Mônaco', 377), /*147*/
+		('São Marinho', 378), /*148*/
+		('Vaticano', 379), /*149*/
+		('Ucrânia', 380), /*150*/
+		('Sérvia e Montenegro', 381), /*151*/
+		('Croácia', 385), /*152*/
+		('Eslovénia', 386), /*153*/
+		('Bósnia e Herzegovina', 387), /*154*/
+		('Macedônia', 389), /*155*/
+		('República Tcheca', 420), /*156*/
+		('Eslováquia', 421), /*157*/
+		('Liechtenstein', 423), /*158*/
+		('Grenada', 473), /*159*/
+		('Ilhas Malvinas', 500), /*160*/
+		('Belize', 501), /*161*/
+		('Guatemala', 502), /*162*/
+		('El Salvador', 503), /*163*/
+		('Honduras', 504), /*164*/
+		('Nicarágua', 505), /*165*/
+		('Costa Rica', 506), /*166*/
+		('Panamá', 507), /*167*/
+		('São Pedro e Miquelon', 508), /*168*/
+		('Haiti', 509), /*169*/
+		('Guadalupe', 590), /*170*/
+		('Saint-Martin (French West Indies)', 590), /*171*/
+		('Bolívia', 591), /*172*/
+		('Guiana', 592), /*173*/
+		('Equador', 593), /*174*/
+		('Guiana Francesa', 594), /*175*/
+		('Paraguai', 595), /*176*/
+		('Martinica', 596), /*177*/
+		('Suriname', 597), /*178*/
+		('Uruguai', 598), /*179*/
+		('Sint Maarten (Antilhas Holandesas)', 599), /*180*/
+		('Timor-Leste', 670), /*181*/
+		('Guam', 671), /*182*/
+		('Territórios Externos Australianos', 672), /*183*/
+		('Brunei', 673), /*184*/
+		('Nauru', 674), /*185*/
+		('Papua-Nova Guiné', 675), /*186*/
+		('Tonga', 676), /*187*/
+		('Ilhas Salomão', 677), /*188*/
+		('Vanuatu', 678), /*189*/
+		('Fiji', 679), /*190*/
+		('Palau', 680), /*191*/
+		('Wallis e Futuna', 681), /*192*/
+		('Ilhas Cook', 682), /*193*/
+		('Ilha Niue', 683), /*194*/
+		('Samoa', 685), /*195*/
+		('Kiribati', 686), /*196*/
+		('Nova Caledônia', 687), /*197*/
+		('Tuvalu', 688), /*198*/
+		('Polinésia Francesa', 689), /*199*/
+		('Tokelau', 690), /*200*/
+		('Micronésia', 691), /*201*/
+		('Ilhas Marshall', 692), /*202*/
+		('Coréia do Norte', 850), /*203*/
+		('Hong Kong', 852), /*204*/
+		('Macau', 853), /*205*/
+		('Camboja', 855), /*206*/
+		('Laos', 856), /*207*/
+		('Bangladesh', 880), /*208*/
+		('Taiwan', 886), /*209*/
+		('Ilhas Maldivas', 960), /*210*/
+		('Líbano', 961), /*211*/
+		('Jordânia', 962), /*212*/
+		('Síria', 963), /*213*/
+		('Iraque', 964), /*214*/
+		('Kuwait', 965), /*215*/
+		('Arábia Saudita', 966), /*216*/
+		('Iêmen', 967), /*217*/
+		('Omã', 968), /*218*/
+		('Palestina', 970), /*219*/
+		('Emirados Árabes Unidos', 971), /*220*/
+		('Israel', 972), /*221*/
+		('Bahrein', 973), /*222*/
+		('Qatar', 974), /*223*/
+		('Butão', 975), /*224*/
+		('Mongólia', 976), /*225*/
+		('Nepal', 977), /*226*/
+		('Tadjiquistão', 992), /*227*/
+		('Turquemenistão', 993), /*228*/
+		('Azerbaijão', 994), /*229*/
+		('Geórgia', 995), /*230*/
+		('Quirguistão', 996), /*231*/
+		('Uzbequistão', 998); /*232*/
+
         
 INSERT INTO Cachee(valorCachee, descCachee) 
 Value	(500002, 'Protagonista'),			/*01*/
