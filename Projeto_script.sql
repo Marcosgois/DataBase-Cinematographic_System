@@ -22,10 +22,10 @@ create table if not exists EstadoCivil(/*BD FILLED*/
 
 
 /* Aparentemente o mysql já tem uma palavra cache padrão */
-create table if not exists Cachee(/**/
+create table if not exists Cachee(/*BD FILLED*/
 	idCachee int not null auto_increment,
     valorCachee int,
-    descCache varchar(45),
+    descCachee varchar(45),
 	PRIMARY KEY(idCachee)
 );
 
@@ -35,7 +35,7 @@ create table if not exists FaturamentoAnoAnterior(/**/
 	PRIMARY KEY(idFaturamentoAnoAnterior)
 );
 
-create table if not exists Personagem(/**/
+create table if not exists Personagem(/*BD FILLED*/
 	idPersonagem int not null auto_increment,
     nomePersonagem varchar(45),
 	PRIMARY KEY(idPersonagem)
@@ -54,13 +54,13 @@ create table if not exists Nacionalidade(/*BD FILLED*/
 	PRIMARY KEY(idNacionalidade)
 );
 
-create table if not exists TipoFisico(/**/
+create table if not exists TipoFisico(/*BD FILLED*/
 	idTipoFisico int not null auto_increment,
 	descTipoFisico varchar(45),
 	PRIMARY KEY(idTipoFisico)
 );
 
-create table if not exists Filiacao(/**/
+create table if not exists Filiacao(/*BD FILLED*/
 	idFiliacao int not null auto_increment,
     nome_pai varchar(45),
     nome_mae varchar(45),
@@ -69,7 +69,7 @@ create table if not exists Filiacao(/**/
 	PRIMARY KEY(idFiliacao)
 );
 
-create table if not exists Escolaridade(/*TODO - TO FILL*/
+create table if not exists Escolaridade(/*BD FILLED*/
 	idEscolaridade int not null auto_increment,
     descEscolaridade varchar(45),
 	PRIMARY KEY(idEscolaridade)
@@ -101,7 +101,7 @@ create table if not exists Diretor(/**/
 	FOREIGN KEY (idEstadoCivil) REFERENCES EstadoCivil(idEstadoCivil)
 );
 
-create table if not exists Ator(/**/
+create table if not exists Ator(/*BD FILLED*/
 	idAtor int not null auto_increment,
     idSexo int,
     idNacionalidade int,
@@ -260,87 +260,149 @@ create table if not exists Perfil(/**/
 
 /*----------------------- Preencher Dados ----------------*/
 INSERT INTO Sexo (descSexo) 
-Value 	('Masculino'),						/*1*/
-        ('Feminino');						/*2*/
+Value 	('Masculino'),						/*01*/
+        ('Feminino');						/*02*/
         
 INSERT INTO Escolaridade(descEscolaridade) 
-Value	('Ensino Fundamental incompleto'),	/*1*/
-		('Ensino Fundamental completo'),	/*2*/
-		('Ensino Medio incompleto'),		/*3*/
-		('Ensino Medio completo'),			/*4*/
-		('Ensino Superior incompleto'),		/*5*/
-		('Ensino Superior completo'),		/*6*/
-		('Pós-Graduação');					/*7*/
+Value	('Ensino Fundamental incompleto'),	/*01*/
+		('Ensino Fundamental completo'),	/*02*/
+		('Ensino Medio incompleto'),		/*03*/
+		('Ensino Medio completo'),			/*04*/
+		('Ensino Superior incompleto'),		/*05*/
+		('Ensino Superior completo'),		/*06*/
+		('Pós-Graduação');					/*07*/
+        
+INSERT INTO Pais(NomePais, DDI) 
+Value	('', 55),				/*01*/
+		('', 1),				/*02*/
+		('', 2),				/*03*/
+		('', 3),				/*04*/
+		('', 4),				/*05*/
+		('', 5),				/*06*/
+		('', 6),				/*07*/
+		('', 7),				/*08*/
+		('', 8),				/*09*/	
+		('', 9),				/*10*/	
+		('', 10),				/*11*/	
+		('', 11),				/*12*/	    
+		('', 12),				/*13*/	
+		('', 13),				/*14*/	
+		('', 14);				/*15*/
+        
+INSERT INTO Cachee(valorCachee, descCachee) 
+Value	(500002, 'Protagonista'),			/*01*/
+		(250073, 'Ator Secundário'),		/*02*/
+		(579500, 'Ator Terciário'),			/*03*/
+		(10000, 'Figurante'),				/*04*/
+		(5323, 'Figurante Secundário');		/*05*/
         
 INSERT INTO Filiacao (nome_pai,nome_mae,DN_pai,DN_mae) 
 Value 	('William Alvin Pitt',
         'Jane Etta Pitt',
         '1941-12-08',
-        '1940-07-24'),						/*1*/
+        '1940-07-24'),						/*01*/
         
         ('Johannes Waltz',
         'Elisabeth Urbancic',
         '1922-04-11',
-        '1925-08-13'),						/*2*/
+        '1925-08-13'),						/*02*/
         
         ('Josef Fassbender',
         'Adele Fassbender',
         '1946-02-12',
-        '1944-11-23'),						/*3*/
+        '1944-11-23'),						/*03*/
         
         ('Sheldon Roth',
 		'Cora Roth',
         '1938-02-12',
-        '1940-04-10'),						/*4*/
+        '1940-04-10'),						/*04*/
 
 		('Donald Furcillo',
 		'June Frances Nicholson',
         '1909-06-08',
-        '1918-02-15'),						/*5*/
+        '1918-02-15'),						/*05*/
 
 		('Robert Richardson Duvall',
 		'Bobbie Ruth Crawford',
         '1900-06-15',
-        '1907-12-28'),						/*6*/
+        '1907-12-28'),						/*06*/
 
 		('George Dicaprio',
 		'Irmelin Indenbirken',
         '1943-11-30',
-        '1943-02-14'),						/*7*/
+        '1943-02-14'),						/*07*/
 
 		('Chips Hardy',
 		'1950-01-23',
         'Elizabeth Anne Hardy',
-        '1954-02-13'),						/*8*/
+        '1954-02-13'),						/*08*/
 
 		('Edward Mower Norton Jr.',
 		'1948-08-18',
         'Lydia Robinson norton',
-        '1952-08-05');						/*9*/
+        '1952-08-05'),						/*09*/
+		
+        ('Alan George Radcliffe',
+		'1948-08-18',
+        'Marcia Jeannine Gresham',
+        '1952-08-05'),						/*10*/
 
+		('Jo Parsons',
+		'1967-03-23',
+        'Nigel Grint',
+        '1963-11-15'),						/*11*/
+		
+        ('Jacqueline Luesby',
+		'1947-06-12',
+        'Chris Watson',
+        '1933-12-15');						/*12*/
+        
 INSERT INTO Nacionalidade (descNacionalidade) 
-Value 	('Brasileiro'),						/*1*/
-        ('Americano'),						/*2*/
-        ('Canadense'),						/*3*/
-        ('Australiano'),					/*4*/
-        ('Chinês'),							/*5*/
-        ('Japonês'),						/*6*/
-        ('Austriaco'),						/*7*/
-        ('Alemão'),							/*8*/
-		('Britânico');						/*9*/
+Value 	('Brasileiro'),						/*01*/
+        ('Americano'),						/*02*/
+        ('Canadense'),						/*03*/
+        ('Australiano'),					/*04*/
+        ('Chinês'),							/*05*/
+        ('Japonês'),						/*06*/
+        ('Austriaco'),						/*07*/
+        ('Alemão'),							/*08*/
+		('Britânico');						/*09*/
 
 INSERT INTO EstadoCivil (descEstadoCivil) 
-Value 	('Solteiro'),						/*1*/
-        ('Casado'),							/*2*/
-        ('Separado'),						/*3*/
-        ('Divorciado'),						/*4*/
-        ('Viuvo');							/*5*/
+Value 	('Solteiro'),						/*01*/
+        ('Casado'),							/*02*/
+        ('Separado'),						/*03*/
+        ('Divorciado'),						/*04*/
+        ('Viuvo');							/*05*/
 
 INSERT INTO TipoTelefone (descTipoTelefone) 
-Value 	('Celular'),						/*1*/
-        ('Trabalho'),						/*2*/
-        ('Comercial'),						/*3*/
-        ('Residencial');					/*4*/
+Value 	('Celular'),						/*01*/
+        ('Trabalho'),						/*02*/
+        ('Comercial'),						/*03*/
+        ('Residencial');					/*04*/
+        
+INSERT INTO TipoFisico (descTipoFisico) 
+Value 	('avô, pai, galã com idades avançadas, idosos'),		/*01*/
+        ('avó, mãe, avó vilã, mãe vilã'),						/*02*/
+        ('Homem forte, esportista, galã'),						/*03*/
+        ('Mulher, Jovem'),										/*04*/
+        ('Homem, Jovem'),										/*50*/
+        ('Mulher, esportista, forte');							/*06*/
+        
+INSERT INTO Personagem (descPersonagem) 
+Value 	('Tenente Aldo Raine'),									/*01*/
+		('Coronel Hans Landa'),									/*02*/
+		('Tenente Archie Hicox'),								/*03*/
+		('Sargento Donny "Urso Judeu" Donowitz'),				/*04*/
+		('Jack Torrance'),										/*05*/
+		('Wendy Torrance'),										/*06*/
+		('Dom Cobb'),											/*07*/
+		('Eames'),												/*08*/
+		('Narrador'),											/*09*/
+		('Harry James Potter'),									/*10*/
+		('Ronald Bílius Weasley'),								/*11*/
+		('Hermione Jean Granger');								/*12*/
+		
         
 INSERT INTO Ator (	idSexo,
 					idNacionalidade,
@@ -361,7 +423,7 @@ Value 	(1,
         'Brad Pitt',
         '1963-12-18',
         '398-412-843-32',
-        '9.834.775'),						/*1*/		
+        '9.834.775'),						/*01*/		
         
         (1,
 		 7,
@@ -372,7 +434,7 @@ Value 	(1,
         'Christoph Waltz',
         '1956-10-04',
         '923-432-429-24',
-        '8.452.429'),						/*2*/
+        '8.452.429'),						/*02*/
         
 		(1,
 		 8,
@@ -383,7 +445,7 @@ Value 	(1,
         'Michael Fassbender',
         '1977-04-02',
         '219-458-237-23',
-        '4.572.789'),						/*3*/			
+        '4.572.789'),						/*03*/			
         
 		(1,
 		 2,
@@ -394,7 +456,7 @@ Value 	(1,
         'Eli Roth',
         '1972-04-18',
         '798-342-570-32',
-        '2.340.987'),						/*4*/			/* Inglorius Basterds*/
+        '2.340.987'),						/*04*/			/* Inglorius Basterds*/
         
 		(1,
 		 2,
@@ -405,7 +467,7 @@ Value 	(1,
         'Jack Nicholson',
         '1937-04-22',
         '398-741-238-74',
-        '1.293.046'),						/*5*/			
+        '1.293.046'),						/*05*/			
 
 
 		(2,
@@ -417,7 +479,7 @@ Value 	(1,
         'Shelley Duvall',
         '1949-07-07',
         '134-703-289-47',
-        '2.374.146'),						/*6*/			/*The Shining*/
+        '2.374.146'),						/*06*/			/*The Shining*/
 
 		(1,
 		 2,
@@ -428,7 +490,7 @@ Value 	(1,
         'Leonardo DiCaprio',
         '1974-11-11',
         '274-192-380-74',
-        '4.676.593'),						/*7*/
+        '4.676.593'),						/*07*/
 
 		(1,
 		 9,
@@ -439,7 +501,7 @@ Value 	(1,
         'Tom Hardy',
         '1977-08-15',
         '328-049-744-35',
-        '2.748.432'),						/*8*/			/* Inception */
+        '2.748.432'),						/*08*/			/* Inception */
 
 		(1,
 		 2,
@@ -450,66 +512,39 @@ Value 	(1,
         'Edward Norton',
         '1969-08-18',
         '280-560-874-34',
-        '3.875.53');						/*9*/			/* Fight Club */
+        '3.875.53'),						/*09*/			/* Fight Club */
         
+        (1,
+		 9,
+         10,
+         7,
+         2,
+        '573-24-1295',
+        'Daniel Jacob Radcliffe',
+        '23-07-1989',
+        '281-270-894-38',
+        '3.925.41'),						/*10*/			      
         
- /*       
-INSERT INTO Ator (idSexo, idNacionalidade, idFiliacao, idEmail, idEscolaridade, idTelefone, idEndereco, seguroSocialAtor, DNAtor, IdentidadeAtor) 
-Value 	('1', '1', '0001', '1', '09/01/1996', '000.000.000-01', '000.000-001'),*/
-/*IdAtor: Auto-Incremento [Não preenche], Sexo: M, idNasc: BR, idFilia: x, edEmail: x, idEsc: 1, idTel: 1, idEnd: 1, SeguroSocial, Nome: Otho, DNAtor: 09/01/1996, CPFAtor: 000.000.000-01, Identidade: 000.000-001
-  sexo(1) = masculino
-  Nacionalidade(1) = Brasileiro
-  idFiliacao(x) = [Ainda precisa preencher para esse ator]
-  idEmail(x) = [Ainda precisa preencher para esse ator]
-  idEscolaridade(x) = [Ainda precisa preencher para esse ator]
-  Precisa preencher 
-			idAtor int not null auto_increment,
-			idSexo int,
-			idNacionalidade int,
-			idFiliacao int,
-			idEmail int,
-			idEscolaridade int,
-			idTelefone int,
-			idEndereco int,
-			seguroSocialAtor int,
-			NomeAtor varchar(255),
-			DNAtor date,
-			CPFAtor varchar(45),
-			IdentidadeAtor varchar(45),
-			PRIMARY KEY(idAtor),
-			FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo),
-			FOREIGN KEY (idNacionalidade) REFERENCES Nacionalidade(idNacionalidade),
-			FOREIGN KEY (idFiliacao) REFERENCES Filiacao(idFiliacao),
-			FOREIGN KEY (idEmail) REFERENCES Email(idEmail),
-			FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo),
-			FOREIGN KEY (idEscolaridade) REFERENCES Escolaridade(idEscolaridade),
-			FOREIGN KEY (idTelefone) REFERENCES Telefone(idTelefone),
-			FOREIGN KEY (idEndereco) REFERENCES Endereco(idEndereco)
-        --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
-		create table if not exists Diretor(
-		idDiretor int not null auto_increment,
-		idSexo int,
-		idNacionalidade int,
-		idFiliacao int,
-		idEmail int,
-		idEscolaridade int,
-		idTelefone int,
-		idEndereco int,
-		nomeDiretor varchar(45),
-		DNDiretor date,
-		CPFDiretor varchar(45),
-		IdentidadeDiretor varchar(45),
-		PRIMARY KEY(idDiretor),
-		FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo),
-		FOREIGN KEY (idNacionalidade) REFERENCES Nacionalidade(idNacionalidade),
-		FOREIGN KEY (idFiliacao) REFERENCES Filiacao(idFiliacao),
-		FOREIGN KEY (idEmail) REFERENCES Email(idEmail),
-		FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo),
-		FOREIGN KEY (idEscolaridade) REFERENCES Escolaridade(idEscolaridade),
-		FOREIGN KEY (idTelefone) REFERENCES Telefone(idTelefone),
-		FOREIGN KEY (idEndereco) REFERENCES Endereco(idEndereco)
-		);
-        */
-
+        (1,
+		 9,
+         11,
+         7,
+         1,
+        '298-56-3594',
+        'Rupert Alexander Lloyd Grint',
+        '24-08-1988',
+        '156-756-148-21',
+        '7.149.501'),						/*11*/    
+        
+        (2,
+		 9,
+         12,
+         7,
+         2,
+        '342-53-1451',
+        'Emma Charlotte Duerre Watson',
+        '15-04-1990',
+        '281-270-894-38',
+        '4.684.19');						/*12*/			/* Harry Potter */
 
 
