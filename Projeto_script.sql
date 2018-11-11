@@ -226,7 +226,7 @@ create table if not exists Filme(/**/
     nomeFilme Varchar(45),
     mesesProducaoFilme int,
     anoLancamentoFilme Date,
-    copyrightNumberFilme int,
+    copyrightNumberFilme Varchar(45),
     custoFilme Varchar(45),
 	PRIMARY KEY(IdFilme),
     FOREIGN KEY (idEstudio) REFERENCES Estudio(idEstudio)
@@ -309,14 +309,45 @@ Value 	('William Alvin Pitt',
         '1943-02-14'),						/*7*/
 
 		('Chips Hardy',
-		'1950-01-23',
         'Elizabeth Anne Hardy',
+		'1950-01-23',
         '1954-02-13'),						/*8*/
 
 		('Edward Mower Norton Jr.',
+		'Lydia Robinson norton',
 		'1948-08-18',
-        'Lydia Robinson norton',
-        '1952-08-05');						/*9*/
+        '1952-08-05'),						/*9*/
+
+		('Tony Tarantino',
+		'Connie Zastoupil',
+        '1940-07-04',
+        '1946-09-03'),						/*10*/
+
+		('Jacques Leonard Kubrick',
+		'Gertrude Kubrick',
+        '1902-05-21',
+        '1903-10-28'),						/*11*/
+
+
+		('Brendan Nolan',
+		'Christina Nolan',
+        '1942-11-12',
+        '1945-06-22'),						/*12*/
+
+		('Jack Fincher',
+		'Claire Mae Fincher',
+        '1930-12-06',
+        '1938-05-23'),						/*13*/
+
+		('John Snider',
+		 'Marie julie Snider',
+		 '1940-12-03',
+		 '1945-01-28'),						/*14*/
+
+		('Martin Tsujihara',
+		 'Julie Tsuhihara',
+		 '1930-08-03',
+		 '1936-07-21');						/*15*/
 
 INSERT INTO Nacionalidade (descNacionalidade) 
 Value 	('Brasileiro'),						/*1*/
@@ -443,73 +474,138 @@ Value 	(1,
 
 		(1,
 		 2,
-         10,
+         9,
          6,
          2,
         '573-24-9854',
         'Edward Norton',
         '1969-08-18',
         '280-560-874-34',
-        '3.875.53');						/*9*/			/* Fight Club */
-        
-        
- /*       
-INSERT INTO Ator (idSexo, idNacionalidade, idFiliacao, idEmail, idEscolaridade, idTelefone, idEndereco, seguroSocialAtor, DNAtor, IdentidadeAtor) 
-Value 	('1', '1', '0001', '1', '09/01/1996', '000.000.000-01', '000.000-001'),*/
-/*IdAtor: Auto-Incremento [Não preenche], Sexo: M, idNasc: BR, idFilia: x, edEmail: x, idEsc: 1, idTel: 1, idEnd: 1, SeguroSocial, Nome: Otho, DNAtor: 09/01/1996, CPFAtor: 000.000.000-01, Identidade: 000.000-001
-  sexo(1) = masculino
-  Nacionalidade(1) = Brasileiro
-  idFiliacao(x) = [Ainda precisa preencher para esse ator]
-  idEmail(x) = [Ainda precisa preencher para esse ator]
-  idEscolaridade(x) = [Ainda precisa preencher para esse ator]
-  Precisa preencher 
-			idAtor int not null auto_increment,
-			idSexo int,
-			idNacionalidade int,
-			idFiliacao int,
-			idEmail int,
-			idEscolaridade int,
-			idTelefone int,
-			idEndereco int,
-			seguroSocialAtor int,
-			NomeAtor varchar(255),
-			DNAtor date,
-			CPFAtor varchar(45),
-			IdentidadeAtor varchar(45),
-			PRIMARY KEY(idAtor),
-			FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo),
-			FOREIGN KEY (idNacionalidade) REFERENCES Nacionalidade(idNacionalidade),
-			FOREIGN KEY (idFiliacao) REFERENCES Filiacao(idFiliacao),
-			FOREIGN KEY (idEmail) REFERENCES Email(idEmail),
-			FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo),
-			FOREIGN KEY (idEscolaridade) REFERENCES Escolaridade(idEscolaridade),
-			FOREIGN KEY (idTelefone) REFERENCES Telefone(idTelefone),
-			FOREIGN KEY (idEndereco) REFERENCES Endereco(idEndereco)
-        --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
-		create table if not exists Diretor(
-		idDiretor int not null auto_increment,
-		idSexo int,
-		idNacionalidade int,
-		idFiliacao int,
-		idEmail int,
-		idEscolaridade int,
-		idTelefone int,
-		idEndereco int,
-		nomeDiretor varchar(45),
-		DNDiretor date,
-		CPFDiretor varchar(45),
-		IdentidadeDiretor varchar(45),
-		PRIMARY KEY(idDiretor),
-		FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo),
-		FOREIGN KEY (idNacionalidade) REFERENCES Nacionalidade(idNacionalidade),
-		FOREIGN KEY (idFiliacao) REFERENCES Filiacao(idFiliacao),
-		FOREIGN KEY (idEmail) REFERENCES Email(idEmail),
-		FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo),
-		FOREIGN KEY (idEscolaridade) REFERENCES Escolaridade(idEscolaridade),
-		FOREIGN KEY (idTelefone) REFERENCES Telefone(idTelefone),
-		FOREIGN KEY (idEndereco) REFERENCES Endereco(idEndereco)
-		);
-        */
+        '3.875.53');						/*9*/			/* Fight Club  */
 
+INSERT INTO Diretor (idSexo,
+    				 idNacionalidade,
+    				 idFiliacao,
+    				 idEscolaridade,
+    				 idEstadoCivil,
+    				 nomeDiretor,
+    				 DNDiretor,
+    				 CPFDiretor,
+    				 IdentidadeDiretor)
+Value	(1,
+		 2,
+		 10,
+		 3,
+		 2,
+		'Quentin Tarantino',
+		'1963-03-27',
+		'340-781-483-17',
+		'8.834.97'),						/*1*/
 
+		(1,
+		 2,
+		 11,
+		 4,
+		 2,
+		'Stanley Kubrick',
+		'1928-07-26',
+		'230-894-169-34',
+		'7.804.34'),						/*2*/
 
+		(1,
+		 9,
+		 12,
+		 6,
+		 2,
+		'Christopher Nolan',
+		'1970-07-30',
+		'301-948-739-56',
+		'9.054.98'),						/*3*/
+
+		(1,
+		 2,
+		 13,
+		 4,
+		 2,
+		'David Fincher',
+		'1962-08-22',
+		'323-089-741-35',
+		'4.978.05');						/*4*/
+
+INSERT INTO FaturamentoAnoAnterior(valor int)
+Value	(234289743),						/*1*/	
+		(102093281),						/*2*/
+		(343958304),						/*3*/
+		(379824033),						/*4*/
+		(283194724),						/*5*/
+		(4584397954);						/*6*/
+
+INSERT INTO DonoEstudio(idSexo,
+						idNacionalidade,
+						idFiliacao,
+						idEscolaridade,
+						idEstadoCivil,
+						nomeDono,
+						DNDono,
+						CPFDono,
+						IdentidadeDono)
+Value	(1,
+		 2,
+		 10,
+		 3,
+		 2,
+		'Quentin Tarantino',
+		'1963-03-27',
+		'340-781-483-17',
+		'8.834.97'),
+
+		(1,
+		 2,
+		 11,
+		 4,
+		 2,
+		'Stanley Kubrick',
+		'1928-07-26',
+		'230-894-169-34',
+		'7.804.34'),						/*2*/
+
+		(2,
+		 2,
+		 14,
+		 6,
+		 2,
+		'Stacey Snider',
+		'1961-04-29',
+		'722-348-907-43',
+		'9.784.632'),						/*3*/
+
+		(1,
+		 2,
+		 15,
+		 6,
+		 2,
+		'Kevin Tsujihara',
+		'1964-10-25',
+		'213-478-783-24',
+		'9.784.163');						/*4*/
+
+INSERT INTO Estudio(nomeEstudio,
+    				dataFundacao)
+Value	('A Band Apart',
+		 '1991-27-06'),
+		 ('Hawk Films',
+		  '1964-31-06'),
+		 ('20th Century Fox',
+		 '1935-05-31'),
+		 ('Warner Bros.',
+		 '1923-04-04');
+
+INSERT INTO Filme(	nomeFilme,
+					mesesProducaoFilm,
+					anoLancamentoFilme ,
+					copyrightNumberFilme,
+					custoFilme Varchar(45))
+Value	('Inglourious Basterds',
+		 10,
+		 '2009-08-21',
+		'VA 298-231');
