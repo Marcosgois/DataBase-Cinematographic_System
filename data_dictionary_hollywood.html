@@ -1,0 +1,692 @@
+<html><head>
+<title>Schema Report for database: mydb</title>
+<style>
+        td,th {
+        text-align:left;
+        vertical-align:middle;
+        }
+        table {
+        border-collapse: collapse;
+        border: 1px solid;
+        }
+        caption, th, td {
+        padding: .2em .8em;
+        border: 1px solid #000000;
+        }
+        caption {
+        background: #D3D3D3;
+        font-weight: bold;
+        font-size: 1.1em;
+        }
+        th {
+        font-weight: bold;
+        background: #000000;
+        color: white;
+        }
+        td {
+        background: #FFFFFF;
+        }
+        </style>
+      </head>
+     <body>
+<h1>Schema Report for database: mydb</h1>
+<a id="home">Table List </a><br /><ul>
+<li><a href="#Estudios">Estudios </a></li>
+<li><a href="#Filmes">Filmes </a></li>
+<li><a href="#Ator">Ator </a></li>
+<li><a href="#Diretor">Diretor </a></li>
+<li><a href="#Cache">Cache </a></li>
+<li><a href="#Personagem">Personagem </a></li>
+<li><a href="#DonoEstudio">DonoEstudio </a></li>
+<li><a href="#FaturamentoAnoAnterior">FaturamentoAnoAnterior </a></li>
+<li><a href="#Sexo">Sexo </a></li>
+<li><a href="#Nacionalidade">Nacionalidade </a></li>
+<li><a href="#UF">UF </a></li>
+<li><a href="#Cidade">Cidade </a></li>
+<li><a href="#Pais">Pais </a></li>
+<li><a href="#Bairro">Bairro </a></li>
+<li><a href="#Endereco">Endereco </a></li>
+<li><a href="#TipoEndereco">TipoEndereco </a></li>
+<li><a href="#Filiacao">Filiacao </a></li>
+<li><a href="#EstadoCivil">EstadoCivil </a></li>
+<li><a href="#Telefone">Telefone </a></li>
+<li><a href="#TipoTelefone">TipoTelefone </a></li>
+<li><a href="#Email">Email </a></li>
+<li><a href="#Escolaridade">Escolaridade </a></li>
+<li><a href="#Atuar">Atuar </a></li>
+<li><a href="#Dirigir">Dirigir </a></li>
+<li><a href="#TipoFisico">TipoFisico </a></li>
+<li><a href="#Perfil">Perfil </a></li>
+</ul>
+<a id="Estudios"></a><table style="width:100%"><caption>Table: Estudios </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idEstudios</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>nomeEstudio</td><td>VARCHAR(45)</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>dataFundacao</td><td>DATE</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>DonoEstudio_idDonoEstudio</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>FaturamentoAnoAnterior_idFaturamentoAnoAnterior</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="Filmes"></a><table style="width:100%"><caption>Table: Filmes </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idFilmes</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>nomeFilmes</td><td>VARCHAR(45)</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>mesesProducaoFilme</td><td>INT</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>anoLancamentoFilme</td><td>DATE</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>copyrightNumberFilme</td><td>INT</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>custoFilme</td><td>INT</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>Estudios_idEstudios</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Estudios_DonoEstudio_idDonoEstudio</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Estudios_FaturamentoAnoAnterior_idFaturamentoAnoAnterior</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="Ator"></a><table style="width:100%"><caption>Table: Ator </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>seguroSocialAtor</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>nomeAtor</td><td>VARCHAR(45)</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>DNAtor</td><td>INT</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>CPFAtor</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>IdentidadeAtor</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_idNacionalidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Telefone_idTelefone</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Telefone_TipoTelefone_TipoTelefone</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Telefone_DonoEstudio_idDonoEstudio</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Telefone_DonoEstudio_Nacionalidade_idNacionalidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Telefone_DonoEstudio_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Filiacao_idFiliacao</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_idEndereco</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Bairro_idBairro</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Bairro_Cidade_idCidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Bairro_Cidade_UF_idUF</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_TipoEndereco_idTipoEndereco</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Ator_seguroSocialAtor</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Ator_Nacionalidade_idNacionalidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Ator_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Ator_Escolaridade_idEscolaridade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Diretor_idDiretor</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Diretor_Filiacao_idFiliacao</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Diretor_EstadoCivil_idEstadoCivil</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Diretor_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Diretor_Escolaridade_idEscolaridade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Email_idEmail</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Sexo_idSexo</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Escolaridade_idEscolaridade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>EstadoCivil_idEstadoCivil</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_idNacionalidade1</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_seguroSocialAtor</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Nacionalidade_idNacionalidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Telefone_idTelefone</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Telefone_TipoTelefone_TipoTelefone</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Telefone_DonoEstudio_idDonoEstudio</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Telefone_DonoEstudio_Nacionalidade_idNacionalidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Telefone_DonoEstudio_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Filiacao_idFiliacao</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_idEndereco</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Bairro_idBairro</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Bairro_Cidade_idCidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Bairro_Cidade_UF_idUF</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_TipoEndereco_idTipoEndereco</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Ator_seguroSocialAtor</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Ator_Nacionalidade_idNacionalidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Ator_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Ator_Escolaridade_idEscolaridade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Diretor_idDiretor</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Diretor_Filiacao_idFiliacao</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Diretor_EstadoCivil_idEstadoCivil</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Diretor_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Diretor_Escolaridade_idEscolaridade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Email_idEmail</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Sexo_idSexo</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Escolaridade_idEscolaridade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="Diretor"></a><table style="width:100%"><caption>Table: Diretor </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idDiretor</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>nomeDiretor</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>DNDiretor</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>CPFDiretor</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>identidadeDiretor</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>Telefone_idTelefone</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Telefone_TipoTelefone_TipoTelefone</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Telefone_DonoEstudio_idDonoEstudio</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Telefone_DonoEstudio_Nacionalidade_idNacionalidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Telefone_DonoEstudio_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Filiacao_idFiliacao</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_idEndereco</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Bairro_idBairro</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Bairro_Cidade_idCidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Bairro_Cidade_UF_idUF</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_TipoEndereco_idTipoEndereco</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Ator_seguroSocialAtor</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Ator_Nacionalidade_idNacionalidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Ator_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Ator_Escolaridade_idEscolaridade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Diretor_idDiretor</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Diretor_Filiacao_idFiliacao</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Diretor_EstadoCivil_idEstadoCivil</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Diretor_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Diretor_Escolaridade_idEscolaridade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Email_idEmail</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Escolaridade_idEscolaridade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Sexo_idSexo</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_idNacionalidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_seguroSocialAtor</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Nacionalidade_idNacionalidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Telefone_idTelefone</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Telefone_TipoTelefone_TipoTelefone</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Telefone_DonoEstudio_idDonoEstudio</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Telefone_DonoEstudio_Nacionalidade_idNacionalidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Telefone_DonoEstudio_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Filiacao_idFiliacao</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_idEndereco</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Bairro_idBairro</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Bairro_Cidade_idCidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Bairro_Cidade_UF_idUF</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_TipoEndereco_idTipoEndereco</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Ator_seguroSocialAtor</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Ator_Nacionalidade_idNacionalidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Ator_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Ator_Escolaridade_idEscolaridade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Diretor_idDiretor</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Diretor_Filiacao_idFiliacao</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Diretor_EstadoCivil_idEstadoCivil</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Diretor_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Diretor_Escolaridade_idEscolaridade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Email_idEmail</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Sexo_idSexo</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Escolaridade_idEscolaridade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>EstadoCivil_idEstadoCivil</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="Cache"></a><table style="width:100%"><caption>Table: Cache </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idCache</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>valorCache</td><td>INT</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>descricaoCache</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="Personagem"></a><table style="width:100%"><caption>Table: Personagem </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idPersonagem</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>nomePersonagem</td><td>VARCHAR(45)</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="DonoEstudio"></a><table style="width:100%"><caption>Table: DonoEstudio </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idDonoEstudio</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>nomeDono</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>DNDono</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>CPFDono</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>IdentidadeDono</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>Telefone_idTelefone</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Telefone_TipoTelefone_TipoTelefone</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Telefone_DonoEstudio_idDonoEstudio</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Telefone_DonoEstudio_Nacionalidade_idNacionalidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Telefone_DonoEstudio_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Filiacao_idFiliacao</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_idEndereco</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Bairro_idBairro</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Bairro_Cidade_idCidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Bairro_Cidade_UF_idUF</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_TipoEndereco_idTipoEndereco</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Ator_seguroSocialAtor</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Ator_Nacionalidade_idNacionalidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Ator_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Ator_Escolaridade_idEscolaridade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Diretor_idDiretor</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Diretor_Filiacao_idFiliacao</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Diretor_EstadoCivil_idEstadoCivil</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Diretor_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Endereco_Diretor_Escolaridade_idEscolaridade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Email_idEmail</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Escolaridade_idEscolaridade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Sexo_idSexo</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_idNacionalidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_seguroSocialAtor</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Nacionalidade_idNacionalidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Telefone_idTelefone</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Telefone_TipoTelefone_TipoTelefone</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Telefone_DonoEstudio_idDonoEstudio</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Telefone_DonoEstudio_Nacionalidade_idNacionalidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Telefone_DonoEstudio_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Filiacao_idFiliacao</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_idEndereco</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Bairro_idBairro</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Bairro_Cidade_idCidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Bairro_Cidade_UF_idUF</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_TipoEndereco_idTipoEndereco</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Ator_seguroSocialAtor</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Ator_Nacionalidade_idNacionalidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Ator_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Ator_Escolaridade_idEscolaridade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Diretor_idDiretor</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Diretor_Filiacao_idFiliacao</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Diretor_EstadoCivil_idEstadoCivil</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Diretor_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Endereco_Diretor_Escolaridade_idEscolaridade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Email_idEmail</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Sexo_idSexo</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Nacionalidade_Ator_Escolaridade_idEscolaridade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>EstadoCivil_idEstadoCivil</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="FaturamentoAnoAnterior"></a><table style="width:100%"><caption>Table: FaturamentoAnoAnterior </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idFaturamentoAnoAnterior</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Valor</td><td>INT</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="Sexo"></a><table style="width:100%"><caption>Table: Sexo </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idSexo</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>descSexo</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="Nacionalidade"></a><table style="width:100%"><caption>Table: Nacionalidade </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idNacionalidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>descNacionalidade</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_seguroSocialAtor</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_Nacionalidade_idNacionalidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_Telefone_idTelefone</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_Telefone_TipoTelefone_TipoTelefone</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_Telefone_DonoEstudio_idDonoEstudio</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_Telefone_DonoEstudio_Nacionalidade_idNacionalidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_Telefone_DonoEstudio_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_Filiacao_idFiliacao</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_Endereco_idEndereco</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_Endereco_Bairro_idBairro</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_Endereco_Bairro_Cidade_idCidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_Endereco_Bairro_Cidade_UF_idUF</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_Endereco_TipoEndereco_idTipoEndereco</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_Endereco_Ator_seguroSocialAtor</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_Endereco_Ator_Nacionalidade_idNacionalidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_Endereco_Ator_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_Endereco_Ator_Escolaridade_idEscolaridade</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_Endereco_Diretor_idDiretor</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_Endereco_Diretor_Filiacao_idFiliacao</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_Endereco_Diretor_EstadoCivil_idEstadoCivil</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_Endereco_Diretor_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_Endereco_Diretor_Escolaridade_idEscolaridade</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_Email_idEmail</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_Sexo_idSexo</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_Escolaridade_idEscolaridade</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="UF"></a><table style="width:100%"><caption>Table: UF </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idUF</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>NomeUF</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>descUF</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>Pais_idPais</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="Cidade"></a><table style="width:100%"><caption>Table: Cidade </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idCidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>nome</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>DDD</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>UF_idUF</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="Pais"></a><table style="width:100%"><caption>Table: Pais </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idPais</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>NomePais</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>DDI</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="Bairro"></a><table style="width:100%"><caption>Table: Bairro </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idBairro</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>NomeBairro</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>Cidade_idCidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Cidade_UF_idUF</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="Endereco"></a><table style="width:100%"><caption>Table: Endereco </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idEndereco</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>NomeEndereco</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>Numero</td><td>INT</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>Bairro_idBairro</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Bairro_Cidade_idCidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Bairro_Cidade_UF_idUF</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>TipoEndereco_idTipoEndereco</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Ator_seguroSocialAtor</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_Nacionalidade_idNacionalidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Ator_Escolaridade_idEscolaridade</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Diretor_idDiretor</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Diretor_Filiacao_idFiliacao</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Diretor_EstadoCivil_idEstadoCivil</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Diretor_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Diretor_Escolaridade_idEscolaridade</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="TipoEndereco"></a><table style="width:100%"><caption>Table: TipoEndereco </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idTipoEndereco</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>descEndereco</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="Filiacao"></a><table style="width:100%"><caption>Table: Filiacao </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idFiliacao</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>nomePai</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>nomeMae</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>CPFFiliacao</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>DNFiliacao</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="EstadoCivil"></a><table style="width:100%"><caption>Table: EstadoCivil </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idEstadoCivil</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>descEstadoCivil</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="Telefone"></a><table style="width:100%"><caption>Table: Telefone </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idTelefone</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>Numero</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+<tr><td>TipoTelefone_TipoTelefone</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>DonoEstudio_idDonoEstudio</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>DonoEstudio_Nacionalidade_idNacionalidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>DonoEstudio_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="TipoTelefone"></a><table style="width:100%"><caption>Table: TipoTelefone </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>TipoTelefone</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>descTipoTelefone</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="Email"></a><table style="width:100%"><caption>Table: Email </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idEmail</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>descEmail</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="Escolaridade"></a><table style="width:100%"><caption>Table: Escolaridade </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idEscolaridade</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>descEscolaridade</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="Atuar"></a><table style="width:100%"><caption>Table: Atuar </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>Filmes_idFilmes</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Filmes_Estudios_idEstudios</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Filmes_Estudios_DonoEstudio_idDonoEstudio</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Filmes_Estudios_FaturamentoAnoAnterior_idFaturamentoAnoAnterior</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Ator_seguroSocialAtor</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Ator_Nacionalidade_idNacionalidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Ator_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Cache_idCache</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Personagem_idPersonagem</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="Dirigir"></a><table style="width:100%"><caption>Table: Dirigir </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>Filmes_idFilmes</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Filmes_Estudios_idEstudios</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Filmes_Estudios_DonoEstudio_idDonoEstudio</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Filmes_Estudios_FaturamentoAnoAnterior_idFaturamentoAnoAnterior</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Diretor_idDiretor</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="TipoFisico"></a><table style="width:100%"><caption>Table: TipoFisico </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>idTipoFisico</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr>
+<tr><td>descTipoFisico</td><td>VARCHAR(45)</td><td>No</td><td>No</td><td>No</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+<a id="Perfil"></a><table style="width:100%"><caption>Table: Perfil </caption>
+<tr><td>Table Comments</td><td colspan="6"></td></tr>
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Nullable</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+<tr><td>TipoFisico_idTipoFisico</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Ator_seguroSocialAtor</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Ator_Nacionalidade_idNacionalidade</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+<tr><td>Ator_Sexo_idtable1</td><td>INT</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr>
+</table><a href="#home">Table List </a></br>
+</body></html>
