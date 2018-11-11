@@ -3,65 +3,121 @@ create database projeto_hollywood;
 use projeto_hollywood;
 
 create table if not exists Sexo( /*BD FILLED*/
-	idSexo int not null auto_increment,
+	idSexo int auto_increment,
     descSexo Varchar(45),
 	PRIMARY KEY(idSexo)
 );
 
 create table if not exists TipoEndereco(/*BD FILLED*/
-	idTipoEndereco int,
+	idTipoEndereco int auto_increment,
 	descEndereco varchar(45),
 	PRIMARY KEY(idTipoEndereco)
 );
 
 create table if not exists EstadoCivil(/*BD FILLED*/
-	idEstadoCivil int not null auto_increment,
+	idEstadoCivil int auto_increment,
     descEstadoCivil varchar(45),
 	PRIMARY KEY(idEstadoCivil)
+);
+
+create table if not exists TipoTelefone(/*BD FILLED*/
+	idTipoTelefone int auto_increment,
+    desctipoTelefone varchar(45),
+	PRIMARY KEY(idTipoTelefone)
+);
+
+create table if not exists Telefone(/**/
+	idTelefone int auto_increment,
+	idTipoTelefone int,
+    numero Varchar(45),
+	PRIMARY KEY(idTelefone),
+	FOREIGN KEY (idTipoTelefone) REFERENCES TipoTelefone(idTipoTelefone)
+);
+create table if not exists Email(/**/
+	idEmail int auto_increment,
+  descEmail varchar(45),
+	PRIMARY KEY(idEmail)
+);
+
+create table if not exists Pais(/**/
+ 	idPais int auto_increment,
+	NomePais varchar(45),
+	DDI int,
+	PRIMARY KEY(idPais)
+);
+
+create table if not exists UF(/**/
+	idUF int auto_increment,
+	idPais int,
+	nomeUF varchar(45),
+	PRIMARY KEY(idUF),
+	FOREIGN KEY (idPais) REFERENCES Pais(idPais)
+);
+
+create table if not exists Cidade(/**/
+	idCidade int auto_increment,
+	idUF int,
+	nomeCidade varchar(45),
+	DDD int,
+	PRIMARY KEY(idCidade),
+	FOREIGN KEY (idUF) REFERENCES UF(idUF)
+);
+
+create table if not exists Bairro(/**/
+	idBairro int auto_increment,
+	idCidade int,
+	NomeBairro varchar(45),
+	PRIMARY KEY(idBairro),
+	FOREIGN KEY (idCidade) REFERENCES Cidade(idCidade)
+);
+
+create table if not exists Endereco(/**/
+	idEndereco int auto_increment,
+	idBairro int,
+	idTipoEndereco int,
+	nomeEndereco varchar(45),
+	numeroEndereco int,
+	PRIMARY KEY(idEndereco),
+	FOREIGN KEY (idBairro) REFERENCES Bairro(idBairro),
+	FOREIGN KEY (idTipoEndereco) REFERENCES TipoEndereco(idTipoEndereco)
 );
 
 
 /* Aparentemente o mysql já tem uma palavra cache padrão */
 create table if not exists Cachee(/*BD FILLED*/
-	idCachee int not null auto_increment,
+	idCachee int auto_increment,
     valorCachee int,
     descCachee varchar(45),
 	PRIMARY KEY(idCachee)
 );
 
 create table if not exists FaturamentoAnoAnterior(/**/
-	idFaturamentoAnoAnterior int NOT NULL AUTO_INCREMENT,
+	idFaturamentoAnoAnterior int AUTO_INCREMENT,
     valor int,
 	PRIMARY KEY(idFaturamentoAnoAnterior)
 );
 
 create table if not exists Personagem(/*BD FILLED*/
-	idPersonagem int not null auto_increment,
+	idPersonagem int auto_increment,
     nomePersonagem varchar(45),
 	PRIMARY KEY(idPersonagem)
 );
 
-create table if not exists Pais(/**/
- 	idPais int not null auto_increment,
-	NomePais varchar(45),
-	DDI varchar(45),
-	PRIMARY KEY(idPais)
-);
 
 create table if not exists Nacionalidade(/*BD FILLED*/
-	idNacionalidade int not null auto_increment,
+	idNacionalidade int auto_increment,
     descNacionalidade varchar(45),
 	PRIMARY KEY(idNacionalidade)
 );
 
 create table if not exists TipoFisico(/*BD FILLED*/
-	idTipoFisico int not null auto_increment,
+	idTipoFisico int auto_increment,
 	descTipoFisico varchar(45),
 	PRIMARY KEY(idTipoFisico)
 );
 
 create table if not exists Filiacao(/*BD FILLED*/
-	idFiliacao int not null auto_increment,
+	idFiliacao int auto_increment,
     nome_pai varchar(45),
     nome_mae varchar(45),
     DN_pai date,
@@ -70,147 +126,91 @@ create table if not exists Filiacao(/*BD FILLED*/
 );
 
 create table if not exists Escolaridade(/*BD FILLED*/
-	idEscolaridade int not null auto_increment,
+	idEscolaridade int auto_increment,
     descEscolaridade varchar(45),
 	PRIMARY KEY(idEscolaridade)
 );
 
-
-create table if not exists TipoTelefone(/*BD FILLED*/
-	idTipoTelefone int not null auto_increment,
-    desctipoTelefone varchar(45),
-	PRIMARY KEY(idTipoTelefone)
-);
-
 create table if not exists Diretor(/**/
-	idDiretor int not null auto_increment,
+	idDiretor int auto_increment,
 	idSexo int,
     idNacionalidade int,
     idFiliacao int,
     idEscolaridade int,
     idEstadoCivil int,
+		idTelefone int,
+		idEmail int,
+		idEndereco int,
     nomeDiretor varchar(45),
     DNDiretor date,
     CPFDiretor varchar(45),
-    IdentidadeDiretor varchar(45),
+    identidadeDiretor varchar(45),
 	PRIMARY KEY(idDiretor),
 	FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo),
 	FOREIGN KEY (idNacionalidade) REFERENCES Nacionalidade(idNacionalidade),
     FOREIGN KEY (idFiliacao) REFERENCES Filiacao(idFiliacao),
     FOREIGN KEY (idEscolaridade) REFERENCES Escolaridade(idEscolaridade),
-	FOREIGN KEY (idEstadoCivil) REFERENCES EstadoCivil(idEstadoCivil)
+	FOREIGN KEY (idEstadoCivil) REFERENCES EstadoCivil(idEstadoCivil),
+		FOREIGN KEY (idTelefone) REFERENCES Telefone(idTelefone),
+		FOREIGN KEY (idEmail) REFERENCES Email(idEmail),
+		FOREIGN KEY (idEndereco) REFERENCES Endereco(idEndereco)
 );
 
 create table if not exists Ator(/*BD FILLED*/
-	idAtor int not null auto_increment,
+	idAtor int auto_increment,
     idSexo int,
     idNacionalidade int,
     idFiliacao int,
     idEscolaridade int,
 	idEstadoCivil int,
+	idTelefone int,
+	idEmail int,
+	idEndereco int,
     seguroSocialAtor varchar(255),
     NomeAtor varchar(255),
     DNAtor date,
     CPFAtor varchar(45),
-    IdentidadeAtor varchar(45),
+    identidadeAtor varchar(45),
 	PRIMARY KEY(idAtor),
     FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo),
 	FOREIGN KEY (idEstadoCivil) REFERENCES EstadoCivil(idEstadoCivil),
 	FOREIGN KEY (idNacionalidade) REFERENCES Nacionalidade(idNacionalidade),
     FOREIGN KEY (idFiliacao) REFERENCES Filiacao(idFiliacao),
-    FOREIGN KEY (idEscolaridade) REFERENCES Escolaridade(idEscolaridade)
+    FOREIGN KEY (idEscolaridade) REFERENCES Escolaridade(idEscolaridade),
+		FOREIGN KEY (idTelefone) REFERENCES Telefone(idTelefone),
+		FOREIGN KEY (idEmail) REFERENCES Email(idEmail),
+		FOREIGN KEY (idEndereco) REFERENCES Endereco(idEndereco)
+
 );
 
 create table if not exists DonoEstudio(/**/
-	idDonoEstudio int not null auto_increment,
+	idDonoEstudio int auto_increment,
 	idSexo int,
     idNacionalidade int,
     idFiliacao int,
     idEscolaridade int,
 	idEstadoCivil int,
+	idTelefone int,
+	idEmail int,
+	idEndereco int,
     nomeDono Varchar(45),
     DNDono date,
     CPFDono varchar(45),
-	IdentidadeDono varchar(45),
+	identidadeDono varchar(45),
 	PRIMARY KEY(idDonoEstudio),
 	FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo),
 	FOREIGN KEY (idEstadoCivil) REFERENCES EstadoCivil(idEstadoCivil),
 	FOREIGN KEY (idNacionalidade) REFERENCES Nacionalidade(idNacionalidade),
     FOREIGN KEY (idFiliacao) REFERENCES Filiacao(idFiliacao),
-    FOREIGN KEY (idEscolaridade) REFERENCES Escolaridade(idEscolaridade)
-);
+    FOREIGN KEY (idEscolaridade) REFERENCES Escolaridade(idEscolaridade),
+		FOREIGN KEY (idTelefone) REFERENCES Telefone(idTelefone),
+		FOREIGN KEY (idEmail) REFERENCES Email(idEmail),
+		FOREIGN KEY (idEndereco) REFERENCES Endereco(idEndereco)
 
-create table if not exists Telefone(/**/
-	idTelefone int not null auto_increment,
-	idDiretor int,
-	idAtor int,
-	idTipoTelefone int,
-	idDonoEstudio int,
-    numero Varchar(45),
-	PRIMARY KEY(idTelefone),
-	FOREIGN KEY (idDiretor) REFERENCES Diretor(idDiretor),
-	FOREIGN KEY (idAtor) REFERENCES Ator(idAtor),
-	FOREIGN KEY (idTipoTelefone) REFERENCES TipoTelefone(idTipoTelefone),
-	FOREIGN KEY (idDonoEstudio) REFERENCES DonoEstudio(idDonoEstudio)
-);
-
-create table if not exists Email(/**/
-	idEmail int not null auto_increment,
-	idAtor int,
-	idDiretor int,
-	idDonoEstudio int,
-    descEmail varchar(45),
-	PRIMARY KEY(idEmail),
-  	FOREIGN KEY (idAtor) REFERENCES Ator(idAtor),
-  	FOREIGN KEY (idDiretor) REFERENCES Diretor(idDiretor),
-	FOREIGN KEY (idDonoEstudio) REFERENCES DonoEstudio(idDonoEstudio)
-);
-
-create table if not exists UF(/**/
-	idUF int not null auto_increment,
-	idPais int,
-	nomeUF varchar(45),
-	descUF varchar(45),
-	PRIMARY KEY(idUF),
-	FOREIGN KEY (idPais) REFERENCES Pais(idPais)
-);
-
-create table if not exists Cidade(/**/
-	idCidade int not null auto_increment,
-	idUF int,
-	nome varchar(45),
-	DDD varchar(45),
-	PRIMARY KEY(idCidade),
-	FOREIGN KEY (idUF) REFERENCES UF(idUF)
-);
-
-create table if not exists Bairro(/**/
-	idBairro int not null auto_increment,
-	idCidade int,
-	NomeBairro varchar(45),
-	PRIMARY KEY(idBairro),
-	FOREIGN KEY (idCidade) REFERENCES Cidade(idCidade)
-);
-
-create table if not exists Endereco(/**/
-	idEndereco int not null auto_increment,
-	idAtor int,
-	idDiretor int,
-	idDonoEstudio int,
-	idBairro int,
-	idTipoEndereco int,
-	nomeEndereco varchar(45),
-	numeroEndereco int,
-	PRIMARY KEY(idEndereco),
-	FOREIGN KEY (idAtor) REFERENCES Ator(idAtor),
-	FOREIGN KEY (idDiretor) REFERENCES Diretor(idDiretor),
-	FOREIGN KEY (idDonoEstudio) REFERENCES DonoEstudio(idDonoEstudio),
-	FOREIGN KEY (idBairro) REFERENCES Bairro(idBairro),
-	FOREIGN KEY (idTipoEndereco) REFERENCES TipoEndereco(idTipoEndereco)
 );
 
 create table if not exists Estudio(/**/
-	idEstudio int NOT NULL auto_increment,
+	idEstudio int auto_increment,
     idDonoEstudio int,
 	idFaturamentoAnoAnterior int,
     nomeEstudio Varchar(45),
@@ -221,14 +221,14 @@ create table if not exists Estudio(/**/
 );
 
 create table if not exists Filme(/**/
-	IdFilme int NOT NULL AUTO_INCREMENT,
+	  idFilme int AUTO_INCREMENT,
     idEstudio int,
     nomeFilme Varchar(45),
     mesesProducaoFilme int,
     anoLancamentoFilme Date,
     copyrightNumberFilme Varchar(45),
-    custoFilme Varchar(45),
-	PRIMARY KEY(IdFilme),
+    custoFilme int,
+		PRIMARY KEY(IdFilme),
     FOREIGN KEY (idEstudio) REFERENCES Estudio(idEstudio)
 );
 
@@ -506,13 +506,53 @@ Value	('Anguila', 1), /*1*/
 		('Quirguistão', 996), /*231*/
 		('Uzbequistão', 998); /*232*/
 
-        
+INSERT INTO UF(	nomeUF)
+Value	('Missouri'),								/*01*/
+			('Massachusetts'),					/*02*/
+			('Lisbon'),									/*03*/
+			('New York'),								/*04*/
+			('London');									/*05*/
+
+INSERT INTO Cidade(	nomeCidade,
+										DDD)
+Value	('Springfield', 417),				/*01*/
+			('Boston', 617),						/*02*/
+			('Lisbon', 21),							/*03*/
+			('Manhattan', 100),					/*04*/
+			('Hammersmith', 020);				/*05*/
+
+INSERT INTO Bairro(idCidade,
+									 NomeBairro)
+Value (1,'Cinnamon Square'),			/*01*/
+			(2,'Dorchester'),						/*02*/
+			(3,'Belem'),								/*03*/
+			(4,'Yorkville'),						/*04*/
+			(5,'Hammersmith Broadway');	/*05*/
+
+INSERT INTO TipoEndereco(descEndereco)
+Value ('Condominio'),							/*01*/
+			('Rua'),										/*02*/
+			('Avenida'),								/*03*/
+			('Praça'),									/*04*/
+			('Jardim'),									/*05*/
+			('Chacara');								/*06*/
+
+INSERT INTO Endereco(	idBairro,
+											idTipoEndereco,
+											nomeEndereco,
+											numeroEndereco)
+Value	(1,1,'Condominio Cinnamon',12),							/*01*/
+			(2,2,'Rua Metropolinata',23),								/*02*/
+			(3,2,'Rua Barbados',51),										/*03*/
+			(4,1,'Rua Manhattan',11),										/*04*/
+			(5,3,'Avenida Hammersmith',1);							/*05*/
+
 INSERT INTO Cachee(valorCachee, descCachee) 
 Value	(500002, 'Protagonista'),			/*01*/
 		(250073, 'Ator Secundário'),		/*02*/
 		(579500, 'Ator Terciário'),			/*03*/
-		(10000, 'Figurante'),				/*04*/
-		(5323, 'Figurante Secundário');		/*05*/
+		(10000, 'Figurante'),						/*04*/
+		(5323, 'Figurante Secundário');	/*05*/
         
 INSERT INTO Filiacao (nome_pai,nome_mae,DN_pai,DN_mae) 
 Value 	('William Alvin Pitt',
@@ -604,7 +644,12 @@ Value 	('William Alvin Pitt',
 		('Martin Tsujihara',
 		 'Julie Tsuhihara',
 		 '1930-08-03',
-		 '1936-07-21');						/*15*/
+		 '1936-07-21'),						/*15*/
+
+		 	('Michael Yates',
+		 'Silvia Yates',
+		 '1932-05-12',
+		 '1934-08-17');					/*16*/
          
 INSERT INTO Nacionalidade (descNacionalidade) 
 Value 	('Brasileiro'),						/*01*/
@@ -615,13 +660,13 @@ Value 	('Brasileiro'),						/*01*/
         ('Japonês'),						/*06*/
         ('Austriaco'),						/*07*/
         ('Alemão'),							/*08*/
-		('Britânico');						/*09*/
+				('Britânico');						/*09*/
 
 INSERT INTO EstadoCivil (descEstadoCivil) 
 Value 	('Solteiro'),						/*01*/
         ('Casado'),							/*02*/
         ('Separado'),						/*03*/
-        ('Divorciado'),						/*04*/
+        ('Divorciado'),					/*04*/
         ('Viuvo');							/*05*/
 
 INSERT INTO TipoTelefone (descTipoTelefone) 
@@ -635,10 +680,10 @@ Value 	('avô, pai, galã com idades avançadas, idosos'),		/*01*/
         ('avó, mãe, avó vilã, mãe vilã'),						/*02*/
         ('Homem forte, esportista, galã'),						/*03*/
         ('Mulher, Jovem'),										/*04*/
-        ('Homem, Jovem'),										/*50*/
+        ('Homem, Jovem'),										/*05*/
         ('Mulher, esportista, forte');							/*06*/
         
-INSERT INTO Personagem (descPersonagem) 
+INSERT INTO Personagem (nomePersonagem) 
 Value 	('Tenente Aldo Raine'),									/*01*/
 		('Coronel Hans Landa'),									/*02*/
 		('Tenente Archie Hicox'),								/*03*/
@@ -658,16 +703,22 @@ INSERT INTO Ator (	idSexo,
 					idFiliacao,
 					idEscolaridade,
 					idEstadoCivil,
+					idTelefone,
+					idEmail,
+					idEndereco,
 					seguroSocialAtor,
 					NomeAtor,
 					DNAtor,
 					CPFAtor,
-					IdentidadeAtor) 
+					identidadeAtor) 
 Value 	(1,
-		 2,
+				 2,
          1,
          5,
          4,
+				 null,
+				 null,
+				 1,
         '436-98-8973',
         'Brad Pitt',
         '1963-12-18',
@@ -675,43 +726,55 @@ Value 	(1,
         '9.834.775'),						/*01*/		
         
         (1,
-		 7,
+		 		 7,
          2,
          6,
          2,
+				 null,
+				 null,
+				 2,
         '287-32-4287',
         'Christoph Waltz',
         '1956-10-04',
         '923-432-429-24',
         '8.452.429'),						/*02*/
         
-		(1,
-		 8,
+				(1,
+		 		 8,
          3,
          6,
          2,
+				 null,
+				 null,
+				 3,
         '532-48-3243',
         'Michael Fassbender',
         '1977-04-02',
         '219-458-237-23',
         '4.572.789'),						/*03*/			
         
-		(1,
-		 2,
+	 			(1,
+				 2,
          4,
          6,
          3,
+				 null,
+				 null,
+				 4,
         '238-53-7943',
         'Eli Roth',
         '1972-04-18',
         '798-342-570-32',
         '2.340.987'),						/*04*/			/* Inglorius Basterds*/
         
-		(1,
-		 2,
+				(1,
+				 2,
          5,
          4,
          3,
+				 null,
+				 null,
+				 5,
         '733-13-9847',
         'Jack Nicholson',
         '1937-04-22',
@@ -723,7 +786,10 @@ Value 	(1,
 		 2,
          6,
          4,
-         6,
+         3,
+				 null,
+				 null,
+				 null,
         '733-13-9847',
         'Shelley Duvall',
         '1949-07-07',
@@ -735,6 +801,9 @@ Value 	(1,
          7,
          4,
          1,
+				 null,
+				 null,
+				 null,
         '192-73-8463',
         'Leonardo DiCaprio',
         '1974-11-11',
@@ -746,6 +815,9 @@ Value 	(1,
          8,
          2,
          1,
+				 null,
+				 null,
+				 null,
         '238-04-9725',
         'Tom Hardy',
         '1977-08-15',
@@ -757,6 +829,9 @@ Value 	(1,
          9,
          6,
          2,
+				 null,
+				 null,
+				 null,
         '573-24-9854',
         'Edward Norton',
         '1969-08-18',
@@ -768,31 +843,40 @@ Value 	(1,
          10,
          7,
          2,
+				 null,
+				 null,
+				 null,
         '573-24-1295',
         'Daniel Jacob Radcliffe',
-        '23-07-1989',
+        '1989-07-23',
         '281-270-894-38',
         '3.925.41'),						/*10*/			      
         
         (1,
-		 9,
+		 			9,
          11,
          7,
          1,
+				 null,
+				 null,
+				 null,
         '298-56-3594',
         'Rupert Alexander Lloyd Grint',
-        '24-08-1988',
+        '1988-08-24',
         '156-756-148-21',
         '7.149.501'),						/*11*/    
         
         (2,
-		 9,
+		 		9,
          12,
          7,
          2,
+				 null,
+				 null,
+				 null,
         '342-53-1451',
         'Emma Charlotte Duerre Watson',
-        '15-04-1990',
+        '1990-04-15',
         '281-270-894-38',
         '4.684.19');						/*12*/			/* Harry Potter */
 
@@ -801,15 +885,21 @@ INSERT INTO Diretor (idSexo,
     				 idFiliacao,
     				 idEscolaridade,
     				 idEstadoCivil,
+						 idTelefone,
+						 idEmail,
+						 idEndereco,
     				 nomeDiretor,
     				 DNDiretor,
     				 CPFDiretor,
-    				 IdentidadeDiretor)
+    				 identidadeDiretor)
 Value	(1,
 		 2,
 		 10,
 		 3,
 		 2,
+		 null,
+		 null,
+		 null,
 		'Quentin Tarantino',
 		'1963-03-27',
 		'340-781-483-17',
@@ -820,6 +910,9 @@ Value	(1,
 		 11,
 		 4,
 		 2,
+		 null,
+		 null,
+		 null,
 		'Stanley Kubrick',
 		'1928-07-26',
 		'230-894-169-34',
@@ -830,6 +923,9 @@ Value	(1,
 		 12,
 		 6,
 		 2,
+		 null,
+		 null,
+		 null,
 		'Christopher Nolan',
 		'1970-07-30',
 		'301-948-739-56',
@@ -840,10 +936,26 @@ Value	(1,
 		 13,
 		 4,
 		 2,
+		 null,
+		 null,
+		 null,
 		'David Fincher',
 		'1962-08-22',
 		'323-089-741-35',
-		'4.978.05');						/*4*/
+		'4.978.05'),						/*4*/
+
+		(1,
+		 9,
+		 16,
+		 6,
+		 2,
+		 null,
+		 null,
+		 null,
+		'David Yates',
+		'1963-10-08',
+		'823-740-23',
+		'3.328.497');						/*5*/
 
 INSERT INTO FaturamentoAnoAnterior(valor)
 Value	(234289743),						/*1*/	
@@ -851,22 +963,28 @@ Value	(234289743),						/*1*/
 		(343958304),						/*3*/
 		(379824033),						/*4*/
 		(283194724),						/*5*/
-		(4584397954);						/*6*/
+		(458439795);						/*6*/
 
 INSERT INTO DonoEstudio(idSexo,
 						idNacionalidade,
 						idFiliacao,
 						idEscolaridade,
 						idEstadoCivil,
+						idTelefone,
+						idEmail,
+						idEndereco,
 						nomeDono,
 						DNDono,
 						CPFDono,
-						IdentidadeDono)
+						identidadeDono)
 Value	(1,
 		 2,
 		 10,
 		 3,
 		 2,
+		 null,
+		 null,
+		 null,
 		'Quentin Tarantino',
 		'1963-03-27',
 		'340-781-483-17',
@@ -877,6 +995,9 @@ Value	(1,
 		 11,
 		 4,
 		 2,
+		 null,
+		 null,
+		 null,
 		'Stanley Kubrick',
 		'1928-07-26',
 		'230-894-169-34',
@@ -887,6 +1008,9 @@ Value	(1,
 		 14,
 		 6,
 		 2,
+		 null,
+		 null,
+		 null,
 		'Stacey Snider',
 		'1961-04-29',
 		'722-348-907-43',
@@ -897,28 +1021,83 @@ Value	(1,
 		 15,
 		 6,
 		 2,
+		 null,
+		 null,
+		 null,
 		'Kevin Tsujihara',
 		'1964-10-25',
 		'213-478-783-24',
-		'9.784.163');						/*4*/
+		'9.784.163'),						/*4*/
+
+		(1,
+		 2,
+		 17,
+		 6,
+		 2,
+		 null,
+		 null,
+		 null,
+		'Thomas Tull',
+		'1970-06-09',
+		'031-894-732-18',
+		'3.742.134');						/*5*/
+
+
 
 INSERT INTO Estudio(nomeEstudio,
     				dataFundacao)
 Value	('A Band Apart',
-		 '1991-27-06'),
-		 ('Hawk Films',
-		  '1964-31-06'),
-		 ('20th Century Fox',
-		 '1935-05-31'),
-		 ('Warner Bros.',
-		 '1923-04-04');
+		 '1991-06-27'),					/*1*/
 
-INSERT INTO Filme(	nomeFilme,
-					mesesProducaoFilm,
-					anoLancamentoFilme,
-					copyrightNumberFilme,
-					custoFilme)
-Value	('Inglourious Basterds',
+		 ('Hawk Films',					
+      '1964-06-30'),				/*2*/
+
+		 ('20th Century Fox',		
+		 '1935-05-31'),					/*3*/
+
+		 ('Warner Bros.',
+		 '1923-04-04'),					/*4*/
+
+		 ('Legendary Entertainment',
+		 '2000-07-12');					/*5*/
+
+INSERT INTO Filme(idEstudio,
+									nomeFilme,
+									mesesProducaoFilme,
+									anoLancamentoFilme,
+									copyrightNumberFilme,
+									custoFilme)
+Value	(1,
+		'Inglourious Basterds',
+		10,
+		'2009-08-21',
+		'VA 298-231',
+		70000000),						/*1*/
+
+		(2,
+		'The Shining',
+		12,
+		'1980-05-02',
+		'VA 139-847',
+		19000000),						/*2*/
+
+		(5,
+		'Inception',
+		 11,
+		 '2010-07-16',
+		'VA 238-743',
+		160000000),						/*3*/
+
+		(3,
+		'Fight Club',
 		 10,
-		 '2009-08-21',
-		'VA 298-231');
+		 '1999-10-15',
+		'VA 328-974',
+		63000000),						/*4*/
+
+		 (4,
+			'Harry Potter and the Order of the Phoenix',
+		 10,
+		 '2007-07-11',
+		'VA 298-167',
+		150000000);						/*5*/
