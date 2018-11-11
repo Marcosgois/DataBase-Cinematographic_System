@@ -29,7 +29,7 @@ create table if not exists TipoTelefone(/*BD FILLED*/
 create table if not exists Telefone(/**/
 	idTelefone int auto_increment,
 	idTipoTelefone int,
-    numero Varchar(45),
+  numero Varchar(45),
 	PRIMARY KEY(idTelefone),
 	FOREIGN KEY (idTipoTelefone) REFERENCES TipoTelefone(idTipoTelefone)
 );
@@ -537,6 +537,28 @@ Value ('Condominio'),							/*01*/
 			('Jardim'),									/*05*/
 			('Chacara');								/*06*/
 
+		
+INSERT INTO TipoTelefone (descTipoTelefone) 
+Value 	('Celular'),						/*01*/
+        ('Trabalho'),						/*02*/
+        ('Comercial'),						/*03*/
+        ('Residencial');					/*04*/
+
+INSERT INTO Telefone(idTipoTelefone,
+  										numero)
+Value		(1,'9934-5984'),
+				(2,'3454-3979'),
+				(3,'3498-5743'),
+				(4,'3248-9324'),
+				(3,'4365-4954');
+
+INSERT INTO Email(descEmail)
+Value		('pittbull@hotmail.com'),									/*01*/							
+				('tarantino@hotmail.com'),								/*02*/
+				('chriswaltz@gmail.com'),									/*03*/
+				('danielpotter@yahoo.com'),								/*04*/
+				('dicaprio@gmail.com');										/*05*/
+
 INSERT INTO Endereco(	idBairro,
 											idTipoEndereco,
 											nomeEndereco,
@@ -548,11 +570,11 @@ Value	(1,1,'Condominio Cinnamon',12),							/*01*/
 			(5,3,'Avenida Hammersmith',1);							/*05*/
 
 INSERT INTO Cachee(valorCachee, descCachee) 
-Value	(500002, 'Protagonista'),			/*01*/
-		(250073, 'Ator Secundário'),		/*02*/
-		(579500, 'Ator Terciário'),			/*03*/
-		(10000, 'Figurante'),						/*04*/
-		(5323, 'Figurante Secundário');	/*05*/
+Value	(500002, 'Protagonista'),										/*01*/
+		(250073, 'Ator Secundário'),									/*02*/
+		(579500, 'Ator Terciário'),										/*03*/
+		(10000, 'Figurante'),													/*04*/
+		(5323, 'Figurante Secundário');								/*05*/
         
 INSERT INTO Filiacao (nome_pai,nome_mae,DN_pai,DN_mae) 
 Value 	('William Alvin Pitt',
@@ -668,12 +690,6 @@ Value 	('Solteiro'),						/*01*/
         ('Separado'),						/*03*/
         ('Divorciado'),					/*04*/
         ('Viuvo');							/*05*/
-
-INSERT INTO TipoTelefone (descTipoTelefone) 
-Value 	('Celular'),						/*01*/
-        ('Trabalho'),						/*02*/
-        ('Comercial'),						/*03*/
-        ('Residencial');					/*04*/
         
 INSERT INTO TipoFisico (descTipoFisico) 
 Value 	('avô, pai, galã com idades avançadas, idosos'),		/*01*/
@@ -699,25 +715,25 @@ Value 	('Tenente Aldo Raine'),									/*01*/
 		
         
 INSERT INTO Ator (	idSexo,
-					idNacionalidade,
-					idFiliacao,
-					idEscolaridade,
-					idEstadoCivil,
-					idTelefone,
-					idEmail,
-					idEndereco,
-					seguroSocialAtor,
-					NomeAtor,
-					DNAtor,
-					CPFAtor,
-					identidadeAtor) 
+										idNacionalidade,
+										idFiliacao,
+										idEscolaridade,
+										idEstadoCivil,
+										idTelefone,
+										idEmail,
+										idEndereco,
+										seguroSocialAtor,
+										NomeAtor,
+										DNAtor,
+										CPFAtor,
+										identidadeAtor) 
 Value 	(1,
 				 2,
          1,
          5,
          4,
 				 null,
-				 null,
+				 1,
 				 1,
         '436-98-8973',
         'Brad Pitt',
@@ -730,9 +746,9 @@ Value 	(1,
          2,
          6,
          2,
+				null,
+				 3,
 				 null,
-				 null,
-				 2,
         '287-32-4287',
         'Christoph Waltz',
         '1956-10-04',
@@ -758,9 +774,9 @@ Value 	(1,
          4,
          6,
          3,
+				 1,
 				 null,
 				 null,
-				 4,
         '238-53-7943',
         'Eli Roth',
         '1972-04-18',
@@ -772,9 +788,9 @@ Value 	(1,
          5,
          4,
          3,
+				 2,
 				 null,
 				 null,
-				 5,
         '733-13-9847',
         'Jack Nicholson',
         '1937-04-22',
@@ -787,7 +803,7 @@ Value 	(1,
          6,
          4,
          3,
-				 null,
+				 3,
 				 null,
 				 null,
         '733-13-9847',
@@ -802,7 +818,7 @@ Value 	(1,
          4,
          1,
 				 null,
-				 null,
+				 5,
 				 null,
         '192-73-8463',
         'Leonardo DiCaprio',
@@ -817,7 +833,7 @@ Value 	(1,
          1,
 				 null,
 				 null,
-				 null,
+				 5,
         '238-04-9725',
         'Tom Hardy',
         '1977-08-15',
@@ -831,7 +847,7 @@ Value 	(1,
          2,
 				 null,
 				 null,
-				 null,
+				 2,
         '573-24-9854',
         'Edward Norton',
         '1969-08-18',
@@ -844,8 +860,8 @@ Value 	(1,
          7,
          2,
 				 null,
-				 null,
-				 null,
+				 4,
+				 4,
         '573-24-1295',
         'Daniel Jacob Radcliffe',
         '1989-07-23',
@@ -857,7 +873,7 @@ Value 	(1,
          11,
          7,
          1,
-				 null,
+				 4,
 				 null,
 				 null,
         '298-56-3594',
@@ -871,7 +887,7 @@ Value 	(1,
          12,
          7,
          2,
-				 null,
+				 5,
 				 null,
 				 null,
         '342-53-1451',
@@ -898,7 +914,7 @@ Value	(1,
 		 3,
 		 2,
 		 null,
-		 null,
+		 2,
 		 null,
 		'Quentin Tarantino',
 		'1963-03-27',
@@ -983,7 +999,7 @@ Value	(1,
 		 3,
 		 2,
 		 null,
-		 null,
+		 2,
 		 null,
 		'Quentin Tarantino',
 		'1963-03-27',
