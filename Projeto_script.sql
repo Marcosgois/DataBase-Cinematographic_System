@@ -41,7 +41,7 @@ create table if not exists Email(/**/
 
 create table if not exists Pais(/**/
  	idPais int auto_increment,
-	NomePais varchar(45),
+	nomePais varchar(45),
 	DDI int,
 	PRIMARY KEY(idPais)
 );
@@ -66,7 +66,7 @@ create table if not exists Cidade(/**/
 create table if not exists Bairro(/**/
 	idBairro int auto_increment,
 	idCidade int,
-	NomeBairro varchar(45),
+	nomeBairro varchar(45),
 	PRIMARY KEY(idBairro),
 	FOREIGN KEY (idCidade) REFERENCES Cidade(idCidade)
 );
@@ -118,8 +118,8 @@ create table if not exists TipoFisico(/*BD FILLED*/
 
 create table if not exists Filiacao(/*BD FILLED*/
 	idFiliacao int auto_increment,
-    nome_pai varchar(45),
-    nome_mae varchar(45),
+    nomePai varchar(45),
+    nomeMae varchar(45),
     DN_pai date,
     DN_mae date,
 	PRIMARY KEY(idFiliacao)
@@ -167,7 +167,7 @@ create table if not exists Ator(/*BD FILLED*/
 	idEmail int,
 	idEndereco int,
     seguroSocialAtor varchar(255),
-    NomeAtor varchar(255),
+    nomeAtor varchar(255),
     DNAtor date,
     CPFAtor varchar(45),
     identidadeAtor varchar(45),
@@ -272,7 +272,7 @@ Value	('Ensino Fundamental incompleto'),	/*01*/
 		('Ensino Superior completo'),		/*06*/
 		('Pós-Graduação');					/*07*/
         
-INSERT INTO Pais(NomePais, DDI) 
+INSERT INTO Pais(nomePais, DDI) 
 Value	('Anguila', 1), 					/*1*/
 		('Antígua e Barbuda', 1), 			/*2*/
 		('Bahamas', 1), 					/*3*/
@@ -522,7 +522,7 @@ Value	('Springfield', 417),						/*01*/
 		('Hammersmith', 020);						/*05*/
 
 INSERT INTO Bairro(idCidade,
-					NomeBairro)
+					nomeBairro)
 Value	(1,'Cinnamon Square'),						/*01*/
 		(2,'Dorchester'),							/*02*/
 		(3,'Belem'),								/*03*/
@@ -576,7 +576,7 @@ Value	(500002, 'Protagonista'),								/*01*/
 		(10000, 'Figurante'),									/*04*/
 		(5323, 'Figurante Secundário');							/*05*/
         
-INSERT INTO Filiacao (nome_pai,nome_mae,DN_pai,DN_mae) 
+INSERT INTO Filiacao (nomePai,nomeMae,DN_pai,DN_mae) 
 Value 	('William Alvin Pitt',
         'Jane Etta Pitt',
         '1941-12-08',
@@ -711,7 +711,9 @@ Value 	('Tenente Aldo Raine'),									/*01*/
 		('Narrador'),											/*09*/
 		('Harry James Potter'),									/*10*/
 		('Ronald Bílius Weasley'),								/*11*/
-		('Hermione Jean Granger');								/*12*/
+		('Hermione Jean Granger'),								/*12*/
+		('Tyler Durden');										/*13*/
+		
 		
         
 INSERT INTO Ator (idSexo,
@@ -723,7 +725,7 @@ INSERT INTO Ator (idSexo,
 					idEmail,
 					idEndereco,
 					seguroSocialAtor,
-					NomeAtor,
+					nomeAtor,
 					DNAtor,
 					CPFAtor,
 					identidadeAtor) 
@@ -1078,11 +1080,11 @@ Value	('A Band Apart',
 		 '2000-07-12');					/*5*/
 
 INSERT INTO Filme(idEstudio,
-									nomeFilme,
-									mesesProducaoFilme,
-									anoLancamentoFilme,
-									copyrightNumberFilme,
-									custoFilme)
+				nomeFilme,
+				mesesProducaoFilme,
+				anoLancamentoFilme,
+				copyrightNumberFilme,
+				custoFilme)
 Value	(1,
 		'Inglourious Basterds',
 		10,
@@ -1120,15 +1122,21 @@ Value	(1,
 
 INSERT INTO Atuar (idCachee,
 					idPersonagem,
-                    idAtor)
-VALUE	(1, 1, 1),
-		(1, 2, 2),
-        (1, 3, 3),
-        (1, 4, 4),
-        (1, 5, 5),
-        (1, 6, 6),
-        (1, 7, 7),
-        (1, 8, 8);
+                    idAtor,
+                    idFilme)
+VALUE	(1, 1, 1,1),
+		(5, 2, 2,1),
+        (4, 3, 3,1),
+        (2, 4, 4,1),
+        (4, 5, 5,2),
+        (1, 6, 6,2),
+        (3, 7, 7,3),
+        (4, 8, 8,3),
+        (5, 9, 9,4),
+        (3, 10, 10,5),
+        (4, 11, 11,5),
+        (2, 12, 12,4)
+				(5, 13, 1,4);
         
 INSERT INTO Dirigir (idDiretor,
 					idFilme)
