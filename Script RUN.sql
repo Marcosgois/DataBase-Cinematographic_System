@@ -1152,4 +1152,12 @@ VALUE	(3 ,1),
         (4 ,10),
         (5 ,11),
         (6 ,12);        
-        
+
+
+USE projeto_hollywood;
+
+SELECT a.nomeAtor, n.descNacionalidade, a.DNAtor 
+FROM Ator a
+INNER JOIN Nacionalidade n
+ON a.idNacionalidade = n.idNacionalidade;
+
