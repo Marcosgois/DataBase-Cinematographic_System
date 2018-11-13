@@ -22,3 +22,13 @@ Em termos de consultas e relatórios, o sistema deverá contemplar:
 3. Relação dos cachês de um determinado ator;
 4. Relação de todos os personagens de um ator.
 
+Arquivos:
+
+- data_dictionary: arquivo html de descrição do Banco de dados, gerado a partir do MER do Workbench
+
+-	Projeto_script.sql: comandos sql voltados à criação das tabelas e preenchimento dessas tabelas(5 dados em cada, no mínimo).
+
+- TrabalhoFinal-SistemaCinematografico.mwb: Arquivo de edição do MER construído. Facilita observar as relações ao passar o mouse sobre os fios que ligam as tabelas.
+
+- MER_sistema_cinematográfico.png: foto do MER gerado no MySQL Workbench
+
