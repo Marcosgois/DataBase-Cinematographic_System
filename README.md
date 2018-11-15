@@ -32,3 +32,6 @@ Arquivos:
 
 - MER_sistema_cinematográfico.png: foto do MER gerado no MySQL Workbench
 
+Membros:
+- Otho Teixeira Komatsu (170020142) 
+- José Marcos Vinícius Andrade Gois (130143081)
