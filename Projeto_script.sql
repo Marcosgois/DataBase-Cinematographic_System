@@ -2,305 +2,347 @@ create database projeto_hollywood;
 
 use projeto_hollywood;
 
-create table if not exists Sexo( 
-	idSexo int auto_increment,
-    descSexo Varchar(45),
-	PRIMARY KEY(idSexo)
+CREATE TABLE IF NOT EXISTS Sexo (
+    idSexo INT AUTO_INCREMENT,
+    descSexo VARCHAR(45),
+    PRIMARY KEY (idSexo)
 );
 
-create table if not exists TipoEndereco(
-	idTipoEndereco int auto_increment,
-	descEndereco varchar(45),
-	PRIMARY KEY(idTipoEndereco)
+CREATE TABLE IF NOT EXISTS TipoEndereco (
+    idTipoEndereco INT AUTO_INCREMENT,
+    descEndereco VARCHAR(45),
+    PRIMARY KEY (idTipoEndereco)
 );
 
-create table if not exists EstadoCivil(
-	idEstadoCivil int auto_increment,
-    descEstadoCivil varchar(45),
-	PRIMARY KEY(idEstadoCivil)
+CREATE TABLE IF NOT EXISTS EstadoCivil (
+    idEstadoCivil INT AUTO_INCREMENT,
+    descEstadoCivil VARCHAR(45),
+    PRIMARY KEY (idEstadoCivil)
 );
 
-create table if not exists TipoTelefone(
-	idTipoTelefone int auto_increment,
-    desctipoTelefone varchar(45),
-	PRIMARY KEY(idTipoTelefone)
+CREATE TABLE IF NOT EXISTS TipoTelefone (
+    idTipoTelefone INT AUTO_INCREMENT,
+    desctipoTelefone VARCHAR(45),
+    PRIMARY KEY (idTipoTelefone)
 );
 
-create table if not exists Telefone(
-	idTelefone int auto_increment,
-	idTipoTelefone int,
-  numero Varchar(45),
-	PRIMARY KEY(idTelefone),
-	FOREIGN KEY (idTipoTelefone) REFERENCES TipoTelefone(idTipoTelefone) ON DELETE CASCADE
-																		 ON UPDATE CASCADE
+CREATE TABLE IF NOT EXISTS Telefone (
+    idTelefone INT AUTO_INCREMENT,
+    idTipoTelefone INT,
+    numero VARCHAR(45),
+    PRIMARY KEY (idTelefone),
+    FOREIGN KEY (idTipoTelefone)
+        REFERENCES TipoTelefone (idTipoTelefone)
+        ON DELETE CASCADE ON UPDATE CASCADE
 );
-create table if not exists Email(
-	idEmail int auto_increment,
-  descEmail varchar(45),
-	PRIMARY KEY(idEmail)
-);
-
-create table if not exists Pais(
- 	idPais int auto_increment,
-	nomePais varchar(45),
-	DDI int,
-	PRIMARY KEY(idPais)
+CREATE TABLE IF NOT EXISTS Email (
+    idEmail INT AUTO_INCREMENT,
+    descEmail VARCHAR(45),
+    PRIMARY KEY (idEmail)
 );
 
-create table if not exists UF(
-	idUF int auto_increment,
-	nomeUF varchar(45),
-	PRIMARY KEY(idUF)
+CREATE TABLE IF NOT EXISTS Pais (
+    idPais INT AUTO_INCREMENT,
+    nomePais VARCHAR(45),
+    DDI INT,
+    PRIMARY KEY (idPais)
 );
 
-create table if not exists Cidade(
-	idCidade int auto_increment,
-	idUF int,
-	nomeCidade varchar(45),
-	DDD int,
-	PRIMARY KEY(idCidade),
-	FOREIGN KEY (idUF) REFERENCES UF(idUF)  ON DELETE CASCADE
-											ON UPDATE CASCADE
+CREATE TABLE IF NOT EXISTS UF (
+    idUF INT AUTO_INCREMENT,
+    nomeUF VARCHAR(45),
+    PRIMARY KEY (idUF)
 );
 
-create table if not exists Bairro(
-	idBairro int auto_increment,
-	idCidade int,
-	nomeBairro varchar(45),
-	PRIMARY KEY(idBairro),
-	FOREIGN KEY (idCidade) REFERENCES Cidade(idCidade)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE
+CREATE TABLE IF NOT EXISTS Cidade (
+    idCidade INT AUTO_INCREMENT,
+    idUF INT,
+    nomeCidade VARCHAR(45),
+    DDD INT,
+    PRIMARY KEY (idCidade),
+    FOREIGN KEY (idUF)
+        REFERENCES UF (idUF)
+        ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-create table if not exists Endereco(
-	idEndereco int auto_increment,
-	idBairro int,
-	idTipoEndereco int,
-	nomeEndereco varchar(45),
-	numeroEndereco int,
-	PRIMARY KEY(idEndereco),
-	FOREIGN KEY (idBairro) REFERENCES Bairro(idBairro)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE,
-	FOREIGN KEY (idTipoEndereco) REFERENCES TipoEndereco(idTipoEndereco)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE
+CREATE TABLE IF NOT EXISTS Bairro (
+    idBairro INT AUTO_INCREMENT,
+    idCidade INT,
+    nomeBairro VARCHAR(45),
+    PRIMARY KEY (idBairro),
+    FOREIGN KEY (idCidade)
+        REFERENCES Cidade (idCidade)
+        ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS Endereco (
+    idEndereco INT AUTO_INCREMENT,
+    idBairro INT,
+    idTipoEndereco INT,
+    nomeEndereco VARCHAR(45),
+    numeroEndereco INT,
+    PRIMARY KEY (idEndereco),
+    FOREIGN KEY (idBairro)
+        REFERENCES Bairro (idBairro)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idTipoEndereco)
+        REFERENCES TipoEndereco (idTipoEndereco)
+        ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
 /* Aparentemente o mysql já tem uma palavra "cache" padrão */
-create table if not exists Cachee(
-	idCachee int auto_increment,
-  valorCachee int,
-  descCachee varchar(45),
-	PRIMARY KEY(idCachee)
+CREATE TABLE IF NOT EXISTS Cachee (
+    idCachee INT AUTO_INCREMENT,
+    valorCachee INT,
+    descCachee VARCHAR(45),
+    PRIMARY KEY (idCachee)
 );
 
-create table if not exists FaturamentoAnoAnterior(
-	idFaturamentoAnoAnterior int AUTO_INCREMENT,
-  valor int,
-	PRIMARY KEY(idFaturamentoAnoAnterior)
+CREATE TABLE IF NOT EXISTS FaturamentoAnoAnterior (
+    idFaturamentoAnoAnterior INT AUTO_INCREMENT,
+    valor INT,
+    PRIMARY KEY (idFaturamentoAnoAnterior)
 );
 
-create table if not exists Personagem(
-	idPersonagem int auto_increment,
-  nomePersonagem varchar(45),
-	PRIMARY KEY(idPersonagem)
+CREATE TABLE IF NOT EXISTS Personagem (
+    idPersonagem INT AUTO_INCREMENT,
+    nomePersonagem VARCHAR(45),
+    PRIMARY KEY (idPersonagem)
 );
 
-create table if not exists TipoFisico(
-	idTipoFisico int auto_increment,
-	descTipoFisico varchar(45),
-	PRIMARY KEY(idTipoFisico)
+CREATE TABLE IF NOT EXISTS TipoFisico (
+    idTipoFisico INT AUTO_INCREMENT,
+    descTipoFisico VARCHAR(45),
+    PRIMARY KEY (idTipoFisico)
 );
 
-create table if not exists Filiacao(
-	idFiliacao int auto_increment,
-  nomePai varchar(45),
-  nomeMae varchar(45),
-  DN_pai date,
-  DN_mae date,
-	PRIMARY KEY(idFiliacao)
+CREATE TABLE IF NOT EXISTS Filiacao (
+    idFiliacao INT AUTO_INCREMENT,
+    nomePai VARCHAR(45),
+    nomeMae VARCHAR(45),
+    DN_pai DATE,
+    DN_mae DATE,
+    PRIMARY KEY (idFiliacao)
 );
 
-create table if not exists Escolaridade(
-	idEscolaridade int auto_increment,
-  descEscolaridade varchar(45),
-	PRIMARY KEY(idEscolaridade)
+CREATE TABLE IF NOT EXISTS Escolaridade (
+    idEscolaridade INT AUTO_INCREMENT,
+    descEscolaridade VARCHAR(45),
+    PRIMARY KEY (idEscolaridade)
 );
 
-create table if not exists Diretor(
-	idDiretor int auto_increment,
-	idSexo int,
-  idPais int,
-  idFiliacao int,
-  idEscolaridade int,
-  idEstadoCivil int,
-	idTelefone int,
-	idEmail int,
-	idEndereco int,
-	idCidade int,
-	nomeDiretor varchar(45),
-	DNDiretor date,
-	CPFDiretor varchar(45),
-	identidadeDiretor varchar(45),
-	PRIMARY KEY(idDiretor),
-	FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE,
-	FOREIGN KEY (idPais) REFERENCES Pais(idPais),
-	FOREIGN KEY (idFiliacao) REFERENCES Filiacao(idFiliacao)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE,
-	FOREIGN KEY (idEscolaridade) REFERENCES Escolaridade(idEscolaridade)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE,
-	FOREIGN KEY (idEstadoCivil) REFERENCES EstadoCivil(idEstadoCivil)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE,
-	FOREIGN KEY (idTelefone) REFERENCES Telefone(idTelefone)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE,
-	FOREIGN KEY (idEmail) REFERENCES Email(idEmail)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE,
-	FOREIGN KEY (idEndereco) REFERENCES Endereco(idEndereco)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE,
-	FOREIGN KEY (idCidade) REFERENCES Cidade(idCidade)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE
-
+CREATE TABLE IF NOT EXISTS Diretor (
+    idDiretor INT AUTO_INCREMENT,
+    idSexo INT,
+    idPais INT,
+    idFiliacao INT,
+    idEscolaridade INT,
+    idEstadoCivil INT,
+    idTelefone INT,
+    idEmail INT,
+    idEndereco INT,
+    idCidade INT,
+    nomeDiretor VARCHAR(45),
+    DNDiretor DATE,
+    CPFDiretor VARCHAR(45),
+    identidadeDiretor VARCHAR(45),
+    PRIMARY KEY (idDiretor),
+    FOREIGN KEY (idSexo)
+        REFERENCES Sexo (idSexo)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idPais)
+        REFERENCES Pais (idPais),
+    FOREIGN KEY (idFiliacao)
+        REFERENCES Filiacao (idFiliacao)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idEscolaridade)
+        REFERENCES Escolaridade (idEscolaridade)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idEstadoCivil)
+        REFERENCES EstadoCivil (idEstadoCivil)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idTelefone)
+        REFERENCES Telefone (idTelefone)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idEmail)
+        REFERENCES Email (idEmail)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idEndereco)
+        REFERENCES Endereco (idEndereco)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idCidade)
+        REFERENCES Cidade (idCidade)
+        ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-create table if not exists Ator(
-	idAtor int auto_increment,
-	idSexo int,
-	idPais int,
-	idFiliacao int,
-	idEscolaridade int,
-	idEstadoCivil int,
-	idTelefone int,
-	idEmail int,
-	idEndereco int,
-	idCidade int,
-	seguroSocialAtor varchar(255),
-	nomeAtor varchar(255),
-	DNAtor date,
-	CPFAtor varchar(45),
-	identidadeAtor varchar(45),
-	PRIMARY KEY(idAtor),
-  FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE,
-	FOREIGN KEY (idEstadoCivil) REFERENCES EstadoCivil(idEstadoCivil)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE,
-	FOREIGN KEY (idPais) REFERENCES Pais(idPais)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE,
-	FOREIGN KEY (idFiliacao) REFERENCES Filiacao(idFiliacao)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE,
-	FOREIGN KEY (idEscolaridade) REFERENCES Escolaridade(idEscolaridade)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE,
-	FOREIGN KEY (idTelefone) REFERENCES Telefone(idTelefone)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE,
-	FOREIGN KEY (idEmail) REFERENCES Email(idEmail)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE,
-	FOREIGN KEY (idEndereco) REFERENCES Endereco(idEndereco)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE,
-	FOREIGN KEY (idCidade) REFERENCES Cidade(idCidade)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE
-
+CREATE TABLE IF NOT EXISTS Ator (
+    idAtor INT AUTO_INCREMENT,
+    idSexo INT,
+    idPais INT,
+    idFiliacao INT,
+    idEscolaridade INT,
+    idEstadoCivil INT,
+    idTelefone INT,
+    idEmail INT,
+    idEndereco INT,
+    idCidade INT,
+    seguroSocialAtor VARCHAR(255),
+    nomeAtor VARCHAR(255),
+    DNAtor DATE,
+    CPFAtor VARCHAR(45),
+    identidadeAtor VARCHAR(45),
+    PRIMARY KEY (idAtor),
+    FOREIGN KEY (idSexo)
+        REFERENCES Sexo (idSexo)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idEstadoCivil)
+        REFERENCES EstadoCivil (idEstadoCivil)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idPais)
+        REFERENCES Pais (idPais)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idFiliacao)
+        REFERENCES Filiacao (idFiliacao)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idEscolaridade)
+        REFERENCES Escolaridade (idEscolaridade)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idTelefone)
+        REFERENCES Telefone (idTelefone)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idEmail)
+        REFERENCES Email (idEmail)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idEndereco)
+        REFERENCES Endereco (idEndereco)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idCidade)
+        REFERENCES Cidade (idCidade)
+        ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-create table if not exists DonoEstudio(
-	idDonoEstudio int auto_increment,
-	idSexo int,
-	idPais int,
-	idFiliacao int,
-	idEscolaridade int,
-	idEstadoCivil int,
-	idTelefone int,
-	idEmail int,
-	idEndereco int,
-	idCidade int,
-	nomeDono Varchar(45),
-	DNDono date,
-	CPFDono varchar(45),
-	identidadeDono varchar(45),
-	PRIMARY KEY(idDonoEstudio),
-	FOREIGN KEY (idSexo) REFERENCES Sexo(idSexo)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE,
-	FOREIGN KEY (idEstadoCivil) REFERENCES EstadoCivil(idEstadoCivil)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE,
-	FOREIGN KEY (idPais) REFERENCES Pais(idPais)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE,
-	FOREIGN KEY (idFiliacao) REFERENCES Filiacao(idFiliacao)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE,
-	FOREIGN KEY (idEscolaridade) REFERENCES Escolaridade(idEscolaridade)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE,
-	FOREIGN KEY (idTelefone) REFERENCES Telefone(idTelefone)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE,
-	FOREIGN KEY (idEmail) REFERENCES Email(idEmail)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE,
-	FOREIGN KEY (idEndereco) REFERENCES Endereco(idEndereco)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE,
-	FOREIGN KEY (idCidade) REFERENCES Cidade(idCidade)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE
+CREATE TABLE IF NOT EXISTS DonoEstudio (
+    idDonoEstudio INT AUTO_INCREMENT,
+    idSexo INT,
+    idPais INT,
+    idFiliacao INT,
+    idEscolaridade INT,
+    idEstadoCivil INT,
+    idTelefone INT,
+    idEmail INT,
+    idEndereco INT,
+    idCidade INT,
+    nomeDono VARCHAR(45),
+    DNDono DATE,
+    CPFDono VARCHAR(45),
+    identidadeDono VARCHAR(45),
+    PRIMARY KEY (idDonoEstudio),
+    FOREIGN KEY (idSexo)
+        REFERENCES Sexo (idSexo)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idEstadoCivil)
+        REFERENCES EstadoCivil (idEstadoCivil)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idPais)
+        REFERENCES Pais (idPais)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idFiliacao)
+        REFERENCES Filiacao (idFiliacao)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idEscolaridade)
+        REFERENCES Escolaridade (idEscolaridade)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idTelefone)
+        REFERENCES Telefone (idTelefone)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idEmail)
+        REFERENCES Email (idEmail)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idEndereco)
+        REFERENCES Endereco (idEndereco)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idCidade)
+        REFERENCES Cidade (idCidade)
+        ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-create table if not exists Estudio(
-	idEstudio int auto_increment,
-	idDonoEstudio int,
-	nomeEstudio Varchar(45),
-	dataFundacao date,
-	PRIMARY KEY(idEstudio),
-	FOREIGN KEY (idDonoEstudio) REFERENCES DonoEstudio(idDonoEstudio)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE
+CREATE TABLE IF NOT EXISTS Estudio (
+    idEstudio INT AUTO_INCREMENT,
+    idDonoEstudio INT,
+    nomeEstudio VARCHAR(45),
+    dataFundacao DATE,
+    PRIMARY KEY (idEstudio),
+    FOREIGN KEY (idDonoEstudio)
+        REFERENCES DonoEstudio (idDonoEstudio)
+        ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-create table if not exists Filme(
-	  idFilme int AUTO_INCREMENT,
-    idEstudio int,
-    nomeFilme Varchar(45),
-    mesesProducaoFilme int,
-    anoLancamentoFilme Date,
-    copyrightNumberFilme Varchar(45),
-    custoFilme int,
-		PRIMARY KEY(IdFilme),
-    FOREIGN KEY (idEstudio) REFERENCES Estudio(idEstudio)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE
+CREATE TABLE IF NOT EXISTS Filme (
+    idFilme INT AUTO_INCREMENT,
+    idEstudio INT,
+    nomeFilme VARCHAR(45),
+    mesesProducaoFilme INT,
+    anoLancamentoFilme DATE,
+    copyrightNumberFilme VARCHAR(45),
+    custoFilme INT,
+    PRIMARY KEY (IdFilme),
+    FOREIGN KEY (idEstudio)
+        REFERENCES Estudio (idEstudio)
+        ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 /*----------------------- Tabelas associativas----------------*/
-create table if not exists Atuar(
-	idCachee int,
-	idPersonagem int,
-	idAtor int,
-	idFilme int,
-	FOREIGN KEY (idCachee) REFERENCES Cachee(idCachee) ON DELETE CASCADE
-													   ON UPDATE CASCADE,
-	FOREIGN KEY (idPersonagem) REFERENCES Personagem(idPersonagem) ON DELETE CASCADE
-																   ON UPDATE CASCADE,
-	FOREIGN KEY (idAtor) REFERENCES Ator(idAtor) ON DELETE CASCADE
-												 ON UPDATE CASCADE,
-	FOREIGN KEY (idFilme) REFERENCES Filme(idFilme) ON DELETE CASCADE
-													ON UPDATE CASCADE
+CREATE TABLE IF NOT EXISTS Atuar (
+    idCachee INT,
+    idPersonagem INT,
+    idAtor INT,
+    idFilme INT,
+    FOREIGN KEY (idCachee)
+        REFERENCES Cachee (idCachee)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idPersonagem)
+        REFERENCES Personagem (idPersonagem)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idAtor)
+        REFERENCES Ator (idAtor)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idFilme)
+        REFERENCES Filme (idFilme)
+        ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-create table if not exists Dirigir(
-	idDiretor int,
-	idFilme int,
-	FOREIGN KEY (idDiretor) REFERENCES Diretor(idDiretor)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE,
-	FOREIGN KEY (idFilme) REFERENCES Filme(idFilme)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE
+CREATE TABLE IF NOT EXISTS Dirigir (
+    idDiretor INT,
+    idFilme INT,
+    FOREIGN KEY (idDiretor)
+        REFERENCES Diretor (idDiretor)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idFilme)
+        REFERENCES Filme (idFilme)
+        ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-create table if not exists Perfil(
-	idTipoFisico int,
-	idAtor int,
-	FOREIGN KEY (idTipoFisico) REFERENCES TipoFisico(idTipoFisico) ON DELETE CASCADE
-																   ON UPDATE CASCADE,
-	FOREIGN KEY (idAtor) REFERENCES Ator(idAtor)  ON DELETE CASCADE
-												  ON UPDATE CASCADE
+CREATE TABLE IF NOT EXISTS Perfil (
+    idTipoFisico INT,
+    idAtor INT,
+    FOREIGN KEY (idTipoFisico)
+        REFERENCES TipoFisico (idTipoFisico)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idAtor)
+        REFERENCES Ator (idAtor)
+        ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-create table if not exists Estudio_has_FaturamentoAnoAnterior(
-	idEstudio int,
-	idFaturamentoAnoAnterior int,
-	FOREIGN KEY (idEstudio) REFERENCES Estudio(idEstudio)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE,
-	FOREIGN KEY (idFaturamentoAnoAnterior) REFERENCES FaturamentoAnoAnterior(idFaturamentoAnoAnterior)	 ON DELETE CASCADE
-																		 ON UPDATE CASCADE
+CREATE TABLE IF NOT EXISTS Estudio_has_FaturamentoAnoAnterior (
+    idEstudio INT,
+    idFaturamentoAnoAnterior INT,
+    FOREIGN KEY (idEstudio)
+        REFERENCES Estudio (idEstudio)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idFaturamentoAnoAnterior)
+        REFERENCES FaturamentoAnoAnterior (idFaturamentoAnoAnterior)
+        ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 /*----------------------- Preencher Dados ----------------*/
