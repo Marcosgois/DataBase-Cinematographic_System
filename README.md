@@ -7,17 +7,20 @@ do ano anterior. Estes estúdios produzem filmes que possui um nome único, o n�
 
 ## Getting Started
 
-Consultas e Relatórios:
-
+### Consultas e Relatórios:
+```
 1. Relação dos filmes produzidos por um estúdio;
 2. Relação dos atores e diretores dos filmes;
 3. Relação dos cachês de um determinado ator;
 4. Relação de todos os personagens de um ator.
+```
 
-### Prerequisites to acess and archives
+### Prerequisites to Acess
+```
+Have a database mysql or MySQL Workbench installed
+```
 
-* Have a database mysql or MySQL Workbench installed
-
+### Archives
 ```
   data_dictionary: arquivo html de descrição do Banco de dados, gerado a partir do MER do Workbench.
   
