@@ -36,7 +36,7 @@ Have a database mysql or MySQL Workbench installed
 * **Otho Teixeira Komatsu** - *170020142* - [Shothogun](https://github.com/Shothogun)
 * **José Marcos Vinícius Andrade Gois** - *130143081* - [MarcosGois](https://github.com/Marcosgois)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/Marcosgois/DataBase-Cinematographic_System/graphs/contributors) who participated in this project.
 
 ## Built With
 
